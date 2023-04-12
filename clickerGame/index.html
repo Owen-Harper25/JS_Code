@@ -1,11 +1,21 @@
-<html>
+<!DOCTYPE html>
+<html lang = en>
+
     <body>
 
         <h2>Clicker Game</h2>
         <p>My first game.</p>
 
-        <!-- <button type="button" onclick="onButtonClick"Dollar Printer </button> -->
             <button onclick="onButtonClick()">Money</button>
+            <button onclick="upgradeMoney()">Upgrade</button>
+            <button onclick="incomeAdd()">Clicker bot</button>
+
+        <p id = "moneyCounter">You have no money</p>
+        <p id = "upgrades">Fist upgrade price: $10</p>
+        <p id = "incomePrice">Your first bot upgrade is $50</p>
+        <p id = "clickValue">Your clicks are worth: $1</p>
+        <p id = "income">You are making $0 per second</p>
+
 
         <script src="script.js"></script>
     </body>

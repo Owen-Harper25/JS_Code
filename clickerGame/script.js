@@ -4,6 +4,7 @@ let upgradeCost = 10
 let income = 0
 let incomeCost = 50
 let t = 0
+let Bg = true
 
 function time(){
     requestAnimationFrame(time)
@@ -38,4 +39,12 @@ function passIncome(){
         incomeCost += 50
         document.getElementById("incomePrice").innerText = ("Next bot upgrade is $" + incomeCost);
     }
+}
+
+function bgChange(){
+    if (bg === true){
+        <body style="background-color:powderblue;"></body>
+        document.getElementById("moneyCounter").innerText = ("Blue");
+    }
+
 }

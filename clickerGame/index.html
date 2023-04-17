@@ -2,20 +2,28 @@
 <html lang = en>
  
     <body>
-        <h2>Clicker Game</h2>
-        <p>My first game.</p>
+        <h2>Cookie Clicker 2</h2>
+        <p>Click on the cookie to start earning</p>
+            <button onclick="onButtonClick()">🍪</button>
+        
+        <p id = "moneyCounter">You have no cookies</p>
 
-            <button onclick="onButtonClick()">Money</button>
-            <button onclick="upgradeMoney()">Upgrade</button>
-            <button onclick="passIncome()">Clicker bot</button>
+        <p>
+            <button onclick="upgradeMoney()">Increase Production</button>
+            <button onclick="passIncome()">Cookie bot</button>
+        </p>   
 
-        <p id = "moneyCounter">You have no money</p>
         <p id = "upgrades">Fist upgrade price: $10</p>
         <p id = "incomePrice">Your first bot upgrade is $50</p>
         <p id = "clickValue">Your clicks are worth: $1</p>
         <p id = "incomeD">You are making $0 per second</p>
+        <p id = "multiCount">You have no multiplier</p>
+        
+        <hr>
+        <p>Upgrades:</p>
+        <button onclick="onMultiClick()">🥛</button>
 
-        <button onclick="cChange()">Colour</button>
+        <!-- <button onclick="cChange()">Colour</button> -->
         <script src="script.js"></script>
     </body>
 </html> 

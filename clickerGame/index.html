@@ -2,28 +2,84 @@
 <html lang = en>
  
     <body>
-        <h2>Cookie Clicker 2</h2>
-        <p>Click on the cookie to start earning</p>
-            <button onclick="onButtonClick()">🍪</button>
-        
-        <p id = "moneyCounter">You have no cookies</p>
-
-        <p>
-            <button onclick="upgradeMoney()">Increase Production</button>
-            <button onclick="passIncome()">Cookie bot</button>
-        </p>   
-
-        <p id = "upgrades">Fist upgrade price: $10</p>
-        <p id = "incomePrice">Your first bot upgrade is $50</p>
-        <p id = "clickValue">Your clicks are worth: $1</p>
-        <p id = "incomeD">You are making $0 per second</p>
-        <p id = "multiCount">You have no multiplier</p>
+        <h2>School Clicker</h2>
+        <p>Click on the page to start learning</p>
+            <button onclick="onButtonClick()">📝</button>
+            <p> </p>
+            <button onclick="upgradeMoney()">Increase Pencil Power</button>
+            <button onclick="passIncome()">Pencil</button>
+  
+        <p id = "moneyCounter">You have no knowedge points (kp)</p>
+        <p id = "upgrades">First upgrade price is 10kp</p>
+        <p id = "incomePrice">Your pencil upgrade is 50kp</p>
+        <p id = "clickValue">Your pages are worth 1kp</p>
+        <p id = "incomeD">You are making 0kp per second</p>
+        <p id = "multiCount">You have no kp multiplier</p>
         
         <hr>
         <p>Upgrades:</p>
-        <button onclick="onMultiClick()">🥛</button>
+        <style>
+            .tooltip {
+              position: relative;
+              display: inline-block;
+            }
+            
+            .tooltip .tooltiptext {
+              visibility: hidden;
+              width: 250px;
+              background-color: black;
+              color: #fff;
+              text-align: center;
+              border-radius: 6px;
+              padding: 5px 0;
+              
+              position: absolute;
+              z-index: 1;
+              top: -4px;
+              left: 110%;
+            }
+            
+            .tooltip:hover .tooltiptext {
+              visibility: visible;
+            }
+            </style>
+              
+            <button onclick="onMechUpgrade()" class="tooltip">🖊️
+              <span class="tooltiptext">Mechanical Pencil: Doubles your kps</span>         
+            </button>
+            <p id = "mechPencil">First upgrade price is 500kp</p>
 
-        <!-- <button onclick="cChange()">Colour</button> -->
+        <style>
+            .tooltip {
+                position: relative;
+                display: inline-block;
+            }
+            
+            .tooltip .tooltiptext {
+                visibility: hidden;
+                width: 250px;
+                background-color: black;
+                color: #fff;
+                text-align: center;
+                border-radius: 6px;
+                padding: 5px 0;
+                
+                position: absolute;
+                z-index: 1;
+                top: -4px;
+                left: 110%;
+            }
+            
+            .tooltip:hover .tooltiptext {
+                visibility: visible;
+            }
+            </style>
+                
+            <button onclick="onBagUpgrade()" class="tooltip">🎒
+                <span class="tooltiptext">Backpack: Doubles your pencil power</span>     
+            </button>
+            <p id = "backPack">First upgrade price is 200kp</p>
+            
         <script src="script.js"></script>
     </body>
 </html> 

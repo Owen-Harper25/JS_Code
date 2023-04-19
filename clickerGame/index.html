@@ -5,12 +5,13 @@
         <h2>School Clicker</h2>
         <p>Click on the page to start learning</p>
             <button onclick="onButtonClick()">📝</button>
-            <p> </p>
+            <br>
+            <br>
             <button onclick="upgradeMoney()" class="tooltipS">Increase Pencil Power
             <span class="tooltiptext">Makes every click worth 1 more of itself</span>     
             </button>
 
-            <button onclick="passIncome()" class="tooltipS2">Pencil
+            <button onclick="passIncome()" class="tooltipS2">✏️ Pencil
             <span class="tooltiptext">Each pencil gives you 1kp per second</span>     
             </button>
   
@@ -22,20 +23,30 @@
         <p id = "multiCount">You have no kp multiplier</p>
         
         <hr>
+
         <p>Upgrades:</p>
+
             <button id = bagA
             onclick="onBagUpgrade()" class="tooltipE">🎒
             <span class="tooltiptext">Backpack: Doubles your pencil power</span>     
             </button>
-            <p id = "bagB">First upgrade price is 200kp</p>  
-            
+            <p class ="p-inline" id ="bagB">First upgrade price is 200kp</p>
+            <p id ="bagB"></p>
+
             <button id = mechA
             onclick="onMechUpgrade()" class="tooltipE">🖊️
-                <span class="tooltiptext">Mechanical Pencil: Doubles your kps</span>         
+            <span class="tooltiptext">Mechanical Pencil: Doubles your kps<p id = "mechB"></span>         
             </button>
-            <p id = "mechB">First upgrade price is 500kp</p>
-      
-            
+            <p class ="p-inline" id ="mechB">First upgrade price is 500kp</p>.
+            <p id ="mechA"></p>
+
+
+            <style>
+                .p-inline{
+                    display: inline;
+                }
+            </style>
+
             <style>
                 .tooltipE {
                     position: relative;
@@ -88,6 +99,7 @@
                     visibility: visible;
                 }
                 </style>
+                
             <style>
                 .tooltipS2 {
                     position: relative;
@@ -114,6 +126,7 @@
                     visibility: visible;
                 }
                 </style>
+
         <script src="script.js"></script>
     </body>
 </html> 

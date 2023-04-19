@@ -74,9 +74,3 @@ function onBagUpgrade(){
         document.getElementById("bagB").style.display="none";
     }
 }
-
-function toggleActive(el) {
-    el.classList.toggle('active');
-  }
-  
-  

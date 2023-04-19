@@ -1,81 +1,47 @@
 <!DOCTYPE html>
 <html lang = en>
- 
+<link rel="stylesheet" href="script.css">
     <body>
         <h2>School Clicker</h2>
         <p>Click on the page to start learning</p>
-            <div>
-                <button class="bounce" onclick="onButtonClick()">
-                    <img src="https://cdn.vertex42.com/WordTemplates/images/printable-lined-paper-narrow-ruled.png" alt="📝" boarder=0/>
-                </button>
-                <style>
-                    button{
-                    border:none;
-                    cursor: pointer;
-                    appearance: none;
-                    background-color: inherit;
-                    transition: transform .1s ease-in-out;
-                    margin-left:10px;
-                    }
-
-                    button:hover{
-                    transform:scale(1.1);
-                    }
-
-                    button.active {
-                    transform: rotate(5deg);
-                    }
-                    
-                    img{
-                    width: 119px;
-                    height: 154px;
-                    }
-                </style>
-                <style>
-                        @keyframes bounce {
-                        0% {
-                            transform: rotate(0deg);
-                        }
-                        15% {
-                            transform: rotate(5deg);
-                        }                
-                        30%{
-                            transform: rotate(0deg) ; 
-                        }
-
-                        75%{
-                            transform: rotate(-5deg); 
-                        }
-                        
-                        100% {
-                            transform: rotate(0deg);
-                        }
-                        }
-
-                    .bounce {
-                        text-align:center;
-                        margin:0 auto;
-                        margin-top:100px;
-                        height:20px;
-                        width:150px;
-                        padding:20px;  
-                        animation: bounce 1s infinite;
-                        transition: transform .1s ease-in-out;
-                    }
-                </style>
-                </div>
-            </div>
-            <br>
-            <br>
-            <button onclick="upgradeMoney()" class="tooltipS">Increase Pencil Power
-            <span class="tooltiptext">Makes every click worth 1 more of itself</span>     
-            </button>
-
-            <button onclick="passIncome()" class="tooltipS2">✏️ Pencil
-            <span class="tooltiptext">Each pencil gives you 1kp per second</span>     
-            </button>
+            
+        <div class="container">
+        <img src="https://www.teachhub.com/wp-content/uploads/2020/05/Classroom-Management-for-an-Effective-Learning-Environment-768x512.jpg" alt="Classroom" style="width:100%">
+        </div>
+        
         <br>
         <br>
+        <br>
+        
+        <div>
+        <button class=".button" onclick="onButtonClick()">           
+        <img src="https://cdn.vertex42.com/WordTemplates/images/printable-lined-paper-narrow-ruled.png" alt="📝" boarder=0/>
+        </button>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <button onclick="upgradeMoney()" class="tooltipS">Increase Pencil Power
+        <span class="tooltiptext">Makes every click worth 1 more of itself</span>     
+        </button>
+
+        <button onclick="passIncome()" class="tooltipS2">✏️ Pencil
+        <span class="tooltiptext">Each pencil gives you 1kp per second</span>     
+        </button>
+
+        <br>
+        <br>
+
         <p id = "moneyCounter">You have no knowedge points (kp)</p>
         <p id = "moneyTotal">You have no kp</p>
         <p id = "pageValue">Your pages are worth 1kp</p>
@@ -84,7 +50,7 @@
         <p id = "incomePrice">Your pencil upgrade is 50kp</p>     
         <p id = "multiCount">You have no kp multiplier</p>
         
-        
+
         <hr>
 
         <p>Upgrades:</p>
@@ -100,100 +66,8 @@
             onclick="onMechUpgrade()" class="tooltipE">🖊️
             <span class="tooltiptext">Mechanical Pencil: Doubles your kps</span>         
             </button>
-            <p class ="p-inline" id ="mechB">First upgrade price is 500kp</p>.
+            <p class ="p-inline" id ="mechB">First upgrade price is 500kp</p>
             <p id ="mechA"></p>
-
-
-            <style>
-            .p-inline{
-                display: inline;
-            }
-            
-            .prevent-select {
-                -webkit-user-select: none; /* Safari */
-                -ms-user-select: none; /* IE 10 and IE 11 */
-                user-select: none; /* Standard syntax */
-              }
-            </style>
-            <style>
-                .tooltipE {
-                    position: relative;
-                    display: inline-block;
-                }
-                
-                .tooltipE .tooltiptext {
-                    visibility: hidden;
-                    width: 230px;
-                    background-color: black;
-                    color: #fff;
-                    text-align: center;
-                    border-radius: 6px;
-                    padding: 5px 0;
-                    
-                    position: absolute;
-                    z-index: 1;
-                    top: -4px;
-                    left: 110%;
-                }
-                
-                .tooltipE:hover .tooltiptext {
-                    visibility: visible;
-                }
-                </style>
-
-            <style>
-                .tooltipS {
-                    position: relative;
-                    display: inline-block;
-                }
-                
-                .tooltipS .tooltiptext {
-                    visibility: hidden;
-                    width: 250px;
-                    background-color: black;
-                    color: #fff;
-                    text-align: center;
-                    border-radius: 6px;
-                    padding: 5px 0;
-                    
-                    position: absolute;
-                    z-index: 1;
-                    top: 125%;
-                    left: 50%;
-                    margin-left: -75px;
-                }
-                
-                .tooltipS:hover .tooltiptext {
-                    visibility: visible;
-                }
-                </style>
-                
-            <style>
-                .tooltipS2 {
-                    position: relative;
-                    display: inline-block;
-                }
-                
-                .tooltipS2 .tooltiptext {
-                    visibility: hidden;
-                    width: 250px;
-                    background-color: black;
-                    color: #fff;
-                    text-align: center;
-                    border-radius: 6px;
-                    padding: 5px 0;
-                    
-                    position: absolute;
-                    z-index: 1;
-                    top: 125%;
-                    left: 50%;
-                    margin-left: -120px;
-                }
-                
-                .tooltipS2:hover .tooltiptext {
-                    visibility: visible;
-                }
-                </style>
 
         <script src="script.js"></script>
     </body>

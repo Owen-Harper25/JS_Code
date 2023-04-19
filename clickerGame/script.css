@@ -1,0 +1,136 @@
+.p-inline{
+    display: inline;
+}
+.tooltipE {
+    position: relative;
+    display: inline-block;
+}
+    
+.tooltipE .tooltiptext {
+    visibility: hidden;
+    width: 230px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    position: absolute;
+    z-index: 1;
+    top: -4px;
+    left: 110%;
+}
+    
+.tooltipE:hover .tooltiptext {
+    visibility: visible;
+}
+.tooltipS {
+    position: relative;
+    display: inline-block;
+}
+    
+.tooltipS .tooltiptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    position: absolute;
+    z-index: 1;
+    top: 125%;
+    left: 50%;
+    margin-left: -75px;
+}
+    
+.tooltipS:hover .tooltiptext {
+    visibility: visible;
+}
+.tooltipS2 {
+    position: relative;
+    display: inline-block;
+}
+    
+.tooltipS2 .tooltiptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    position: absolute;
+    z-index: 1;
+    top: 125%;
+    left: 50%;
+    margin-left: -120px;
+}
+    
+.tooltipS2:hover .tooltiptext {
+    visibility: visible;
+}
+
+button{
+    border:none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+    transition: transform .1s ease-in-out;
+    margin-left: 10px;
+    position: absolute;
+
+    }
+    button:hover{
+    transform:scale(1.1);
+    }
+
+    button:active {
+    transform: translateY(4px);
+    }
+
+    img{
+    width: 119px;
+    height: 154px;
+    z-index: 1;
+    }
+
+.button{
+    border:none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+    transition: transform .1s ease-in-out;
+    margin-left: 10px;
+    position: absolute;
+    }
+
+    .button:hover{
+    transform:scale(1.1);
+    }
+
+    .button:active {
+    transform: translateY(4px);
+    }
+
+    img{
+    width: 119px;
+    height: 154px;
+    z-index: 1;
+    }
+    
+img{
+    z-index: -1;
+    }
+    .container {
+    position: absolute;
+    width: 100%;
+    max-width: 400px;
+    }
+    
+    .container img {
+    width: 100%;
+    height: auto;
+    }

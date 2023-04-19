@@ -4,25 +4,28 @@ let upgradeCost = 10
 let income = 0
 let incomeCost = 50
 let t = 0
-let Bg = true
-let multiplier = 1
+let multiplier = 50
 let speed = 1
 let mechPencilCost = 500
-let mechPencil = false
 let backPackCost = 200
+let mechPencil = false
 let backPack = false
+let clickPower = 1
+let totalMoney = 0
 
 function time(){
     requestAnimationFrame(time)
     money += multiplier * speed * income / 60
-    document.getElementById("incomeD").innerText = ("Your bots are making " + income * multiplier * speed + "kp per second");
+    totalMoney += multiplier * speed * income / 60
+    document.getElementById("incomeD").innerText = ("You are making " + income * multiplier * speed + "kp per second");
     document.getElementById("moneyCounter").innerText = ("Current knowledge: " + money.toFixed()+ "kp");
-    document.getElementById("multiCount").innerText = ("Current knowledge multiplyer: " + multiplier);
+    document.getElementById("multiCount").innerText = ("Current multiplyer: " + multiplier);
 }
 time()
 
 function onButtonClick(){
-    money += value * multiplier
+    money += value * multiplier * clickPower
+    Totalmoney += multiplier * speed * income / 60
     document.getElementById("moneyCounter").innerText = ("Current knowledge: " + money.toFixed()+ "kp");
 }
 
@@ -33,7 +36,7 @@ function upgradeMoney(){
         upgradeCost += 5
         document.getElementById("moneyCounter").innerText = ("Current knowledge: " + money.toFixed()+ "kp");
         document.getElementById("upgrades").innerText = ("Next upgrade price: $" + upgradeCost);
-        document.getElementById("clickValue").innerText = ("Your pages are worth: " + value * multiplier + "kp each");
+        document.getElementById("pageValue").innerText = ("Your pages are worth: " + value * multiplier * clickPower + "kp each");
         
     }
 }
@@ -52,15 +55,19 @@ function onMechUpgrade(){
         mechPencil = true
         money -= mechPencilCost
         speed += 1
-        document.getElementById("mechPencil").innerText = ("You have bought this upgrade");
+        document.getElementById("incomeD").innerText = ("You are making " + income * multiplier * speed + "kp per second");
+        document.getElementById("mechA").style.display="none";
+        document.getElementById("mechB").style.display="none";
     }
 }
 
 function onBagUpgrade(){
     if (money >= backPackCost && backPack === false){
-        mechPencil = true
+        backPack = true
         money -= backPackCost
-        speed += 1
-        document.getElementById("backPack").innerText = ("You have bought this upgrade");
+        clickPower += 1
+        document.getElementById("pageValue").innerText = ("Your pages are worth: " + value * multiplier * clickPower + "kp each");
+        document.getElementById("bagA").style.display="none";
+        document.getElementById("bagB").style.display="none";
     }
 }

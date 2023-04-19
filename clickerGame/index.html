@@ -6,80 +6,114 @@
         <p>Click on the page to start learning</p>
             <button onclick="onButtonClick()">📝</button>
             <p> </p>
-            <button onclick="upgradeMoney()">Increase Pencil Power</button>
-            <button onclick="passIncome()">Pencil</button>
+            <button onclick="upgradeMoney()" class="tooltipS">Increase Pencil Power
+            <span class="tooltiptext">Makes every click worth 1 more of itself</span>     
+            </button>
+
+            <button onclick="passIncome()" class="tooltipS2">Pencil
+            <span class="tooltiptext">Each pencil gives you 1kp per second</span>     
+            </button>
   
         <p id = "moneyCounter">You have no knowedge points (kp)</p>
-        <p id = "upgrades">First upgrade price is 10kp</p>
+        <p id = "upgrades">First pencil power upgrade price is 10kp</p>
         <p id = "incomePrice">Your pencil upgrade is 50kp</p>
-        <p id = "clickValue">Your pages are worth 1kp</p>
+        <p id = "pageValue">Your pages are worth 1kp</p>
         <p id = "incomeD">You are making 0kp per second</p>
         <p id = "multiCount">You have no kp multiplier</p>
         
         <hr>
         <p>Upgrades:</p>
-        <style>
-            .tooltip {
-              position: relative;
-              display: inline-block;
-            }
-            
-            .tooltip .tooltiptext {
-              visibility: hidden;
-              width: 250px;
-              background-color: black;
-              color: #fff;
-              text-align: center;
-              border-radius: 6px;
-              padding: 5px 0;
-              
-              position: absolute;
-              z-index: 1;
-              top: -4px;
-              left: 110%;
-            }
-            
-            .tooltip:hover .tooltiptext {
-              visibility: visible;
-            }
-            </style>
-              
-            <button onclick="onMechUpgrade()" class="tooltip">🖊️
-              <span class="tooltiptext">Mechanical Pencil: Doubles your kps</span>         
+            <button id = bagA
+            onclick="onBagUpgrade()" class="tooltipE">🎒
+            <span class="tooltiptext">Backpack: Doubles your pencil power</span>     
             </button>
-            <p id = "mechPencil">First upgrade price is 500kp</p>
+            <p id = "bagB">First upgrade price is 200kp</p>  
+            
+            <button id = mechA
+            onclick="onMechUpgrade()" class="tooltipE">🖊️
+                <span class="tooltiptext">Mechanical Pencil: Doubles your kps</span>         
+            </button>
+            <p id = "mechB">First upgrade price is 500kp</p>
+      
+            
+            <style>
+                .tooltipE {
+                    position: relative;
+                    display: inline-block;
+                }
+                
+                .tooltipE .tooltiptext {
+                    visibility: hidden;
+                    width: 230px;
+                    background-color: black;
+                    color: #fff;
+                    text-align: center;
+                    border-radius: 6px;
+                    padding: 5px 0;
+                    
+                    position: absolute;
+                    z-index: 1;
+                    top: -4px;
+                    left: 110%;
+                }
+                
+                .tooltipE:hover .tooltiptext {
+                    visibility: visible;
+                }
+                </style>
 
-        <style>
-            .tooltip {
-                position: relative;
-                display: inline-block;
-            }
-            
-            .tooltip .tooltiptext {
-                visibility: hidden;
-                width: 250px;
-                background-color: black;
-                color: #fff;
-                text-align: center;
-                border-radius: 6px;
-                padding: 5px 0;
+            <style>
+                .tooltipS {
+                    position: relative;
+                    display: inline-block;
+                }
                 
-                position: absolute;
-                z-index: 1;
-                top: -4px;
-                left: 110%;
-            }
-            
-            .tooltip:hover .tooltiptext {
-                visibility: visible;
-            }
-            </style>
+                .tooltipS .tooltiptext {
+                    visibility: hidden;
+                    width: 250px;
+                    background-color: black;
+                    color: #fff;
+                    text-align: center;
+                    border-radius: 6px;
+                    padding: 5px 0;
+                    
+                    position: absolute;
+                    z-index: 1;
+                    top: 125%;
+                    left: 50%;
+                    margin-left: -75px;
+                }
                 
-            <button onclick="onBagUpgrade()" class="tooltip">🎒
-                <span class="tooltiptext">Backpack: Doubles your pencil power</span>     
-            </button>
-            <p id = "backPack">First upgrade price is 200kp</p>
-            
+                .tooltipS:hover .tooltiptext {
+                    visibility: visible;
+                }
+                </style>
+            <style>
+                .tooltipS2 {
+                    position: relative;
+                    display: inline-block;
+                }
+                
+                .tooltipS2 .tooltiptext {
+                    visibility: hidden;
+                    width: 250px;
+                    background-color: black;
+                    color: #fff;
+                    text-align: center;
+                    border-radius: 6px;
+                    padding: 5px 0;
+                    
+                    position: absolute;
+                    z-index: 1;
+                    top: 125%;
+                    left: 50%;
+                    margin-left: -120px;
+                }
+                
+                .tooltipS2:hover .tooltiptext {
+                    visibility: visible;
+                }
+                </style>
         <script src="script.js"></script>
     </body>
 </html> 

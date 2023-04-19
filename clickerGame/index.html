@@ -4,7 +4,32 @@
     <body>
         <h2>School Clicker</h2>
         <p>Click on the page to start learning</p>
-            <button onclick="onButtonClick()">📝</button>
+            <!-- <button onclick="onButtonClick()">📝</button> -->
+            <div>
+                <button onclick="onButtonClick()">
+                    <img src="https://cdn.vertex42.com/WordTemplates/images/printable-lined-paper-narrow-ruled.png" alt="buttonpng" boarder=0/>
+                </button>
+                <style>
+                    button{
+                    border:none;
+                    cursor: pointer;
+                    appearance: none;
+                    background-color: inherit;
+                    transition: transform .1s ease-in-out;
+                    margin-left:10px;
+                    }
+
+                    button:hover{
+                    transform:scale(1.1);
+                    }
+
+                    img{
+                    width: 119px;
+                    height: 154px;
+                    }
+
+                </style>
+            </div>
             <br>
             <br>
             <button onclick="upgradeMoney()" class="tooltipS">Increase Pencil Power
@@ -14,14 +39,19 @@
             <button onclick="passIncome()" class="tooltipS2">✏️ Pencil
             <span class="tooltiptext">Each pencil gives you 1kp per second</span>     
             </button>
-  
+        <br>
+        <br>
         <p id = "moneyCounter">You have no knowedge points (kp)</p>
-        <p id = "upgrades">First pencil power upgrade price is 10kp</p>
-        <p id = "incomePrice">Your pencil upgrade is 50kp</p>
+        <p id = "moneyTotal">You have no kp</p>
         <p id = "pageValue">Your pages are worth 1kp</p>
         <p id = "incomeD">You are making 0kp per second</p>
+        <p id = "upgrades">First pencil power upgrade price is 10kp</p>
+        <p id = "incomePrice">Your pencil upgrade is 50kp</p>     
         <p id = "multiCount">You have no kp multiplier</p>
         
+        
+        
+
         <hr>
 
         <p>Upgrades:</p>
@@ -35,18 +65,23 @@
 
             <button id = mechA
             onclick="onMechUpgrade()" class="tooltipE">🖊️
-            <span class="tooltiptext">Mechanical Pencil: Doubles your kps<p id = "mechB"></span>         
+            <span class="tooltiptext">Mechanical Pencil: Doubles your kps</span>         
             </button>
             <p class ="p-inline" id ="mechB">First upgrade price is 500kp</p>.
             <p id ="mechA"></p>
 
 
             <style>
-                .p-inline{
-                    display: inline;
-                }
+            .p-inline{
+                display: inline;
+            }
+            
+            .prevent-select {
+                -webkit-user-select: none; /* Safari */
+                -ms-user-select: none; /* IE 10 and IE 11 */
+                user-select: none; /* Standard syntax */
+              }
             </style>
-
             <style>
                 .tooltipE {
                     position: relative;

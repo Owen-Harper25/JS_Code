@@ -18,15 +18,17 @@ function time(){
     money += multiplier * speed * income / 60
     totalMoney += multiplier * speed * income / 60
     document.getElementById("incomeD").innerText = ("You are making " + income * multiplier * speed + "kp per second");
-    document.getElementById("moneyCounter").innerText = ("Current knowledge: " + money.toFixed()+ "kp");
+    document.getElementById("moneyCounter").innerText = ("Current knowledge: " + money.toFixed() + "kp");
     document.getElementById("multiCount").innerText = ("Current multiplyer: " + multiplier);
+    document.getElementById("moneyTotal").innerText = ("Total knowledge: " + totalMoney.toFixed() + "kp");
 }
 time()
 
 function onButtonClick(){
     money += value * multiplier * clickPower
-    Totalmoney += multiplier * speed * income / 60
-    document.getElementById("moneyCounter").innerText = ("Current knowledge: " + money.toFixed()+ "kp");
+    totalMoney += value * multiplier * clickPower
+    document.getElementById("moneyCounter").innerText = ("Current knowledge: " + money.toFixed() + "kp");
+    document.getElementById("moneyTotal").innerText = ("Total knowledge: " + totalMoney.toFixed() + "kp");
 }
 
 function upgradeMoney(){

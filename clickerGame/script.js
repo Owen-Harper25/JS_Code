@@ -29,6 +29,7 @@ function onButtonClick(){
     totalMoney += value * multiplier * clickPower
     document.getElementById("moneyCounter").innerText = ("Current knowledge: " + money.toFixed() + "kp");
     document.getElementById("moneyTotal").innerText = ("Total knowledge: " + totalMoney.toFixed() + "kp");
+
 }
 
 function upgradeMoney(){
@@ -73,3 +74,9 @@ function onBagUpgrade(){
         document.getElementById("bagB").style.display="none";
     }
 }
+
+function toggleActive(el) {
+    el.classList.toggle('active');
+  }
+  
+  

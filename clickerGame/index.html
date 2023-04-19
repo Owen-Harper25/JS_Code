@@ -4,10 +4,9 @@
     <body>
         <h2>School Clicker</h2>
         <p>Click on the page to start learning</p>
-            <!-- <button onclick="onButtonClick()">📝</button> -->
             <div>
-                <button onclick="onButtonClick()">
-                    <img src="https://cdn.vertex42.com/WordTemplates/images/printable-lined-paper-narrow-ruled.png" alt="buttonpng" boarder=0/>
+                <button class="bounce" onclick="onButtonClick()">
+                    <img src="https://cdn.vertex42.com/WordTemplates/images/printable-lined-paper-narrow-ruled.png" alt="📝" boarder=0/>
                 </button>
                 <style>
                     button{
@@ -23,12 +22,48 @@
                     transform:scale(1.1);
                     }
 
+                    button.active {
+                    transform: rotate(5deg);
+                    }
+                    
                     img{
                     width: 119px;
                     height: 154px;
                     }
-
                 </style>
+                <style>
+                        @keyframes bounce {
+                        0% {
+                            transform: rotate(0deg);
+                        }
+                        15% {
+                            transform: rotate(5deg);
+                        }                
+                        30%{
+                            transform: rotate(0deg) ; 
+                        }
+
+                        75%{
+                            transform: rotate(-5deg); 
+                        }
+                        
+                        100% {
+                            transform: rotate(0deg);
+                        }
+                        }
+
+                    .bounce {
+                        text-align:center;
+                        margin:0 auto;
+                        margin-top:100px;
+                        height:20px;
+                        width:150px;
+                        padding:20px;  
+                        animation: bounce 1s infinite;
+                        transition: transform .1s ease-in-out;
+                    }
+                </style>
+                </div>
             </div>
             <br>
             <br>
@@ -50,8 +85,6 @@
         <p id = "multiCount">You have no kp multiplier</p>
         
         
-        
-
         <hr>
 
         <p>Upgrades:</p>

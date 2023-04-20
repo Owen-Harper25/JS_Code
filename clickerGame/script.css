@@ -2,7 +2,7 @@ div{
     display: block;
 }
 
-.aside-2{
+/* .aside-2{
     display: flex;
     width:min-content;
     flex-direction: column;
@@ -21,7 +21,7 @@ div{
     width: 100px;
     border-style: groove;
     border-color: #292929;
-}
+} */
 
 .flex-item:hover {
     transform:scale(1.1);
@@ -33,7 +33,7 @@ div{
 .flex-item:active {
     transform: translateY(4px);
     }
-
+/* 
 .header {
     background: #292929;
 }
@@ -47,8 +47,12 @@ div{
   background: deepskyblue;
 }
 
-.aside-2 {
+.aside-1 {
   background: hotpink;
+  position: absolute;
+width: 100%;
+max-width: 400px;
+margin-left: 5px;
 }
 
 @media all and (min-width: 600px) {
@@ -61,7 +65,7 @@ div{
   .main    { order: 2; }
   .aside-2 { order: 3; }
   .footer  { order: 4; }
-}
+} */
 
 body {
   padding: 2em; 
@@ -165,6 +169,7 @@ btn{
     transition: transform .1s ease-in-out;
     margin-left: 130px;
     position: absolute;
+    float: right;
     }
 
     btn:hover{
@@ -184,7 +189,7 @@ btn{
 img{
     z-index: -1;
     }
-    .container {
+    .aside-1 {
     position: absolute;
     width: 100%;
     max-width: 400px;
@@ -192,7 +197,40 @@ img{
 
     }
     
-    .container img {
+    .a img {
     width: 100%;
     height: auto;
     }
+
+.footer {
+background: lightgreen;
+}
+
+.main {
+text-align: left;
+background: deepskyblue;
+}
+
+.aside-1 {
+background: gold;
+}
+
+.aside-2 {
+background: hotpink;
+}
+
+@media all and (min-width: 600px) {
+.aside { flex: 1 0 0; }
+}
+
+@media all and (min-width: 800px) {
+.main    { flex: 3 0px; }
+.aside-1 { order: 1; } 
+.main    { order: 2; }
+.aside-2 { order: 3; }
+.footer  { order: 4; }
+}
+
+body {
+padding: 2em; 
+}

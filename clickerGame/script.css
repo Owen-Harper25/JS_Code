@@ -1,11 +1,71 @@
-table {
-    width: 100%;
-}
-table.menu {
-    width: auto;
-    float: right;
+div{
+    display: block;
 }
 
+.aside-2{
+    display: flex;
+    width:min-content;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    background-color: #a1a1a1;
+    transition: transform .1s ease-in-out;
+    font-weight: bold;
+}
+
+.aside-2 > div{
+    background-color: #a1a1a1;
+    padding: 1px;
+    text-align: center;
+    line-height: 5px;
+    width: 100px;
+    border-style: groove;
+    border-color: #292929;
+}
+
+.flex-item:hover {
+    transform:scale(1.1);
+    background-color: #c2bebe;
+
+
+}
+
+.flex-item:active {
+    transform: translateY(4px);
+    }
+
+.header {
+    background: #292929;
+}
+
+.footer {
+    background: #292929;
+}
+
+.main {
+  text-align: left;
+  background: deepskyblue;
+}
+
+.aside-2 {
+  background: hotpink;
+}
+
+@media all and (min-width: 600px) {
+  .aside { flex: 1 0 0; }
+}
+
+@media all and (min-width: 800px) {
+  .main    { flex: 3 0px; }
+  .aside-1 { order: 1; } 
+  .main    { order: 2; }
+  .aside-2 { order: 3; }
+  .footer  { order: 4; }
+}
+
+body {
+  padding: 2em; 
+}
 .p-inline{
     display: inline;
 }
@@ -24,8 +84,10 @@ table.menu {
     border-radius: 6px;
     padding: 5px 0;
     position: absolute;
-    top: -4px;
-    left: 110%;
+    z-index: 1;
+    top: -5px;
+    right: 105%;
+
 }
     
 .tooltipE:hover .tooltiptext {
@@ -82,23 +144,12 @@ button{
     border:none;
     cursor: pointer;
     appearance: none;
-    background-color: rgba(4, 108, 122, 0.226);
-    border: 2px solid #1A1A1A;
-    transition: transform .1s ease-in-out;
-    margin-left: 10px;
-    position: absolute;
+    margin-left: 5px;
     display: inline-block;
-    border-radius: 10px;
+    background-color: #a1a1a100;
     z-index: 1;
+    width: auto;
     }  
-
-    button:hover{
-    transform:scale(1.1);
-    }
-
-    button:active {
-    transform: translateY(4px);
-    }
 
     img{
     width: 119px;
@@ -137,6 +188,8 @@ img{
     position: absolute;
     width: 100%;
     max-width: 400px;
+    margin-left: 5px;
+
     }
     
     .container img {

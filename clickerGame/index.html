@@ -30,23 +30,54 @@
         <br>
         <br>
         <br>
-        
-        <button onclick="upgradeMoney()" class="tooltipS">Increase Pencil Power
+
+         
+        <table>
+            <colgroup>
+                <col style="width:50%"/>
+                <col style="width:50%"/>
+            </colgroup>
+            <tr>
+                <td class="menu">School Supplies</td>
+                <td>
+                    <table border="1" class="menu">
+                        <tr>
+                            <td>Item 1</td>   
+                        </tr>
+                        <tr>
+                            <td>Item 2</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <button onclick="upgradeClick()" class="tooltipS">Increase Pencil Power
         <span class="tooltiptext">Makes every click worth 1 more of itself</span>     
         </button>
-
-        <button onclick="passIncome()" class="tooltipS2">✏️ Pencil
-        <span class="tooltiptext">Each pencil increases your kps by 0.1</span>     
+        <br>
+        <button onclick="upgradePencil()" class="tooltipE">✏️ Pencil
+        <span class="tooltiptext">     
+            
+            Each pencil increases your kps by 0.1
+        </span>     
         </button>
 
-        <button onclick="passIncome()" class="tooltipS2">📓 Notebook
+        <br>
+
+        <button onclick="upgradeNotebook()" class="tooltipS2">📓 Notebook
             <span class="tooltiptext">Each textbook increases your kps by 1</span>     
             </button>
 
-        <button onclick="passIncome()" class="tooltipS2">📏 Ruler
+        <br>
+
+        <button onclick="upgradeRuler()" class="tooltipS2">📏 Ruler
             <span class="tooltiptext">Each ruler increases your kps by 3</span>     
             </button>
-        <button onclick="passIncome()" class="tooltipS2">📚 Textbooks
+
+        <br>
+
+        <button onclick="upgradeTextbook()" class="tooltipS2">📚 Textbooks
             <span class="tooltiptext">Each textbook increases your kps by 5</span>     
             </button>
 
@@ -61,6 +92,16 @@
         <p id = "incomePrice">Your pencil upgrade is 50kp</p>     
         <p id = "multiCount">You have no kp multiplier</p>
         
+
+
+
+
+
+
+
+
+
+
 
         <hr>
 

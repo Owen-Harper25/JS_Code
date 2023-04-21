@@ -3,7 +3,7 @@ let click = 1
 let upgradeCost = 10
 let income = 0
 let timeA = 0
-let multiplier = 1
+let multiplier = 50
 let speed = 1
 let mechPencilCost = 500
 let backPackCost = 200
@@ -107,7 +107,6 @@ function onBagUpgrade(){
         backPack = true
         money -= backPackCost
         clickPower += 1
-        document.getElementById("pageValue").innerText = ("Your pages are worth: " + click * multiplier * clickPower + "kp each");
         document.getElementById("bagA").style.display="none";
         document.getElementById("bagB").style.display="none";
     }

@@ -1,102 +1,71 @@
 <!DOCTYPE html>
 <html lang = en>
 <link rel="stylesheet" href="script.css">
-    <body>
-        <h2 class="header">School Clicker</h2>
-        <p>Click on the page to start learning</p>
-            
-        <div>
-        <img src="images/Classroom.jpg" alt="Classroom" style="width:100%">
-        </div>
-        
-        <br>
-        <br>
-        <br>
-        
-        <div>
-        <btn class="btn" onclick="onButtonClick()">           
-        <img src="images/Page.png" alt="📝" boarder=0/>
-        </btn>
-        </div>
 
-        <!-- <aside class="aside-2">
-        <header>School Supplies</header>
-        <div class="flex-item">
+<div class="wrapper">
+    <div class="container">
+        <img src="images/Classroom.jpg" alt="Classroom">
+        <btn class="button" onclick="onButtonClick()">           
+            <img src="images/Page.png" alt="📝" boarder=0/>
+        </btn>
+    </div>
+
+    <div>
+        <p id = "moneyCounter" class="info">You have no knowedge points (kp)</p>
+        <p id = "moneyTotal" class="info">You have no kp</p>
+        <p id = "incomeD" class="info">You are making 0kp per second</p>    
+        <p id = "multiCount" class="info">You have no kp multiplier</p>
+    </div>
+
+    <div>
+        <p>School Supplies</p>
+        <div class = "flex-item">
             <button onclick="upgradeClick()" class="tooltipE">Increase Pencil Power
-            <span class="tooltiptext" id="clickUp"></span>     
+                <span class="tooltiptext" id="clickUp"></span>        
             </button>
         </div>
-
         <div class="flex-item">
             <button onclick="upgradePencil()" class="tooltipE">✏️ Pencil
             <span class="tooltiptext" id="pencilID"></span>
             </button>
         </div>
-        
         <div class="flex-item">
             <button onclick="upgradeNotebook()" class="tooltipE">📓 Notebook
             <span class="tooltiptext" id="noteID"></span>     
             </button>
         </div>
-
         <div class="flex-item">
             <button onclick="upgradeRuler()" class="tooltipE">📏 Ruler
             <span id="ruleID" class="tooltiptext">Each ruler increases your kps by 3</span>     
             </button>
         </div>
-
         <div class="flex-item">
             <button onclick="upgradeTextbook()" class="tooltipE">📚 Textbooks
             <span class="tooltiptext" id="textbookID">Each textbook increases your kps by 5</span>     
             </button>
         </div>
-    </aside> -->
+    </div>
+</div>
+        <!-- <h2 class="header">School Clicker</h2>
+        <p>Click on the page to start learning</p> -->
+            
 
-
-
-
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-
-        <div class="wrapper">
-            <header class="header">Header</header>
-            <article class="main">
-              <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>  
-            </article>
-            <aside class="aside aside-1">Aside 1</aside>
-            <aside class="aside aside-2">Aside 2</aside>
-            <footer class="footer">Footer</footer>
-        </div>
-
-        <p id = "moneyCounter">You have no knowedge points (kp)</p>
-        <p id = "moneyTotal">You have no kp</p>
-        <p id = "incomeD">You are making 0kp per second</p>    
-        <p id = "multiCount">You have no kp multiplier</p>
-        
         <hr>
 
         <p>Upgrades:</p>
 
-            <button id = bagA
-            onclick="onBagUpgrade()" class="tooltipE">🎒
+            <button id = bagA onclick="onBagUpgrade()" class="tooltipS">🎒
             <span class="tooltiptext">Backpack: Doubles your pencil power</span>     
             </button>
+
             <p class ="p-inline" id ="bagB">First upgrade price is 200kp</p>
+
             <p id ="bagB"></p>
 
-            <button id = mechA
-            onclick="onMechUpgrade()" class="tooltipE">🖊️
+            <button id = mechA onclick="onMechUpgrade()" class="tooltipS">🖊️
             <span class="tooltiptext">Mechanical Pencil: Doubles your kps</span>         
             </button>
+
             <p class ="p-inline" id ="mechB">First upgrade price is 500kp</p>
             <p id ="mechA"></p>
 

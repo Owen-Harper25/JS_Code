@@ -2,30 +2,33 @@
 <html lang = en>
 <link rel="stylesheet" href="script.css">
 
-<div class="wrapper">
-    <div class="container">
-        <img src="images/Classroom.jpg" alt="Classroom">
-        <btn class="button" onclick="onButtonClick()">           
-            <img src="images/Page.png" alt="📝" boarder=0/>
-        </btn>
+<div class="wrapper child">
+        <div class="bgImage">
+            <button class="pageButton child" onclick="onButtonClick()">           
+                <img src="images/Page.png" alt="📝" boarder=0/>
+            </button>
+        </div>
+
+    <div class="child">
+        <p1>Info</p1>
+        <p id = "moneyCounter" class="info"></p>
+        <p id = "moneyTotal" class="info"></p>
+        <p id = "incomeD" class="info"></p>    
+        <p id = "multiCount" class="info"></p>
     </div>
 
-    <div>
-        <p id = "moneyCounter" class="info">You have no knowedge points (kp)</p>
-        <p id = "moneyTotal" class="info">You have no kp</p>
-        <p id = "incomeD" class="info">You are making 0kp per second</p>    
-        <p id = "multiCount" class="info">You have no kp multiplier</p>
-    </div>
-
-    <div>
-        <p>School Supplies</p>
+    <div class="child">
+        <p2>School Supplies</p2>
         <div class = "flex-item">
             <button onclick="upgradeClick()" class="tooltipE">Increase Pencil Power
                 <span class="tooltiptext" id="clickUp"></span>        
             </button>
         </div>
-        <div class="flex-item">
-            <button onclick="upgradePencil()" class="tooltipE">✏️ Pencil
+        <div>
+            <button onclick="upgradePencil()" class="tooltipE flex-item">
+                <div id="pTxt">✏️ Pencil</div>
+                <div3 id="underText">Cost</div3>
+                <div4 id="pencilNum"> </div4>
             <span class="tooltiptext" id="pencilID"></span>
             </button>
         </div>
@@ -36,7 +39,7 @@
         </div>
         <div class="flex-item">
             <button onclick="upgradeRuler()" class="tooltipE">📏 Ruler
-            <span id="ruleID" class="tooltiptext">Each ruler increases your kps by 3</span>     
+            <span class="tooltiptext"  id="ruleID" >Each ruler increases your kps by 3</span>     
             </button>
         </div>
         <div class="flex-item">

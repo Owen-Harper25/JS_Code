@@ -1,14 +1,22 @@
 div{
     display: block;
 }
+
+div3{
+    font-size: x-small;
+}
+
+div4{
+    float: right
+}
 .info{
     font-size: 20px;
 }
 .wrapper {
     display: flex;
   }
-  .wrapper > div {
-    font-size: 4vh;
+  .wrapper .child {
+    font-size: 3vh;
     color: white;
     background: rgb(184, 184, 184);
     margin: .1em;
@@ -17,6 +25,38 @@ div{
     flex: 1;
   }
 
+.bgImage{
+    display: flex;
+    background-image: url("images/Classroom.jpg");
+    width: 30%;
+    height: auto;
+    margin: .1em;
+    padding: 3em;
+    border-radius: 3px;
+    justify-content: center;
+    align-items: center;
+}
+
+.pageButton{
+    border:none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+    transition: transform .1s ease-in-out;
+    position: absolute;
+    width: 10%;
+    transform: scale(.1);
+    }
+
+    .pageButtontn:hover{
+    transform:scale(.3);
+    }
+
+    .pageButton:active {
+    transform: translateY(4px);
+    transform:scale(.1);
+    }
+
 h1{
     font-size: 40px;
 }
@@ -24,7 +64,7 @@ h2{
     font-size: 40px;
 }
 .flex-item:hover {
-    transform:scale(1.08);
+    transform: scale(1.08);
     background-color: #e9e9e9;
 }
 
@@ -88,73 +128,7 @@ button{
     border:none;
     cursor: pointer;
     appearance: none;
-    margin-left: 5px;
     display: inline-block;
-    background-color: #a1a1a100;
+    background-color: #ff000000;
     z-index: 1;
-    width: auto;
     }  
-
-    /* img{
-    width: 119px;
-    height: 154px;
-    z-index: 1;
-    } */
-
-btn{
-    border:none;
-    cursor: pointer;
-    appearance: none;
-    background-color: inherit;
-    transition: transform .1s ease-in-out;
-    /* margin-left: 130px; */
-    position: absolute;
-    transform:scale(0.3);
-    top: -35%;
-    left: -5%
-
-    }
-
-    btn:hover{
-    transform:scale(0.32);
-    }
-
-    btn:active {
-    transform: translateY(4px);
-    transform:scale(0.3);
-    }
-/* 
-img{
-width: 119px;
-height: 154px;
-z-index: 1;
-} */
-
-.container {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    }
-    
-    .container img {
-    width: 100%;
-    height: auto;
-    z-index: 0;
-    }
-    
-    .container .btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: #555;
-    color: white;
-    font-size: 16px;
-    padding: 12px 24px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
-    }
-    

@@ -81,12 +81,13 @@ function time(){
     document.getElementById("moneyCounter").innerText = ("Current knowledge: " + money.toFixed() + "kp");
     document.getElementById("multiCount").innerText = ("Current multiplyer: " + multiplier);
     document.getElementById("moneyTotal").innerText = ("Total knowledge: " + totalMoney.toFixed() + "kp");
-    // document.getElementById("").innerText = (`Each X increases your kps by 1 \n You have ${n} X. \n ${}kp for the next X`);
     document.getElementById("pencilID").innerText = (`Each Pencil increases your kps by 0.1 \n You have ${p} Pencils. \n ${passPencil}kp for the next Pencil`);
     document.getElementById("noteID").innerText = (`Each Notebook increases your kps by 1 \n You have ${n} Notebooks. \n ${passNotebook}kp for the next Notebook`);
     document.getElementById("ruleID").innerText = (`Each Ruler increases your kps by 3 \n You have ${r} Rulers. \n ${passRuler}kp for the next Ruler`);
     document.getElementById("textbookID").innerText = (`Each Textbook increases your kps by 5 \n You have ${t} Textbooks. \n ${passTextbook}kp for the next Textbook`);
     document.getElementById("clickUp").innerText = (`Each upgrade increases your click value by 1 \n You have ${click} clicks. \n ${upgradeCost}kp for the next upgrade \n Your pages are worth ${click * multiplier * clickPower} kp each`);
+    document.getElementById("underText").innerText = (`${passPencil}`);
+    document.getElementById("pencilNum").innerText = (`${p}`);
 }
 time()
 

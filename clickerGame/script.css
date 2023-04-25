@@ -44,17 +44,15 @@ div4{
     background-color: inherit;
     transition: transform .1s ease-in-out;
     position: absolute;
-    width: 10%;
-    transform: scale(.1);
     }
 
-    .pageButtontn:hover{
+    .pageButton:hover{
     transform:scale(.3);
     }
 
     .pageButton:active {
     transform: translateY(4px);
-    transform:scale(.1);
+    transform:scale(.2);
     }
 
 h1{
@@ -70,7 +68,7 @@ h2{
 
 .flex-item:active {
     transform: translateY(4px);
-    }
+}
 
 .p-inline{
     display: inline;
@@ -123,7 +121,6 @@ h2{
     visibility: visible;
 }
     
-
 button{
     border:none;
     cursor: pointer;

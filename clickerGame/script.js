@@ -15,10 +15,15 @@ let passPencil = 50
 let passNotebook = 100
 let passTextbook = 500
 let passRuler = 250
+let pencilValue = 0.1
+let notebookValue = 1
+let rulerValue = 3
+let textbookValue = 5
 let n = 0
 let p = 0
 let t = 0
 let r = 0
+let totalPencilIncome = pencilValue * p
 
 function onButtonClick(){
     money += click * multiplier * clickPower
@@ -32,15 +37,13 @@ function upgradeClick(){
         money -= upgradeCost
         click += 1
         upgradeCost += 5
-        
-        
     }
 }
 
 function upgradePencil(){
     if (money >= passPencil){
         money -= passPencil
-        income += 0.1
+        income += pencilValue
         p +=1
         passPencil += 15 + 3 * p
     }
@@ -49,7 +52,7 @@ function upgradePencil(){
 function upgradeNotebook(){
     if (money >= passNotebook){
         money -= passNotebook
-        income += 1
+        income += notebookValue
         n +=1
         passNotebook += 15 + 5 * n
     }
@@ -59,18 +62,18 @@ function upgradeNotebook(){
 function upgradeRuler(){
     if (money >= passRuler){
         money -= passRuler
-        income += 3
+        income += rulerValue
         r +=1
-        passTextbook += 50 + 7 * r
+        passRuler += 50 + 7 * r
     }
 }
 
 function upgradeTextbook(){
     if (money >= passTextbook){
         money -= passTextbook
-        income += 5
-        n +=1
-        passTextbook += 100 + 9 * n
+        income += textbookValue
+        t +=1
+        passTextbook += 100 + 9 * t
     }
 }
 function time(){
@@ -79,15 +82,21 @@ function time(){
     totalMoney += multiplier * speed * income / 60
     document.getElementById("incomeD").innerText = ("You are making " + (income * multiplier * speed).toFixed(1) + "kp per second");
     document.getElementById("moneyCounter").innerText = ("Current knowledge: " + money.toFixed() + "kp");
-    document.getElementById("multiCount").innerText = ("Current multiplyer: " + multiplier);
     document.getElementById("moneyTotal").innerText = ("Total knowledge: " + totalMoney.toFixed() + "kp");
-    document.getElementById("pencilID").innerText = (`Each Pencil increases your kps by 0.1 \n You have ${p} Pencils. \n ${passPencil}kp for the next Pencil`);
-    document.getElementById("noteID").innerText = (`Each Notebook increases your kps by 1 \n You have ${n} Notebooks. \n ${passNotebook}kp for the next Notebook`);
-    document.getElementById("ruleID").innerText = (`Each Ruler increases your kps by 3 \n You have ${r} Rulers. \n ${passRuler}kp for the next Ruler`);
-    document.getElementById("textbookID").innerText = (`Each Textbook increases your kps by 5 \n You have ${t} Textbooks. \n ${passTextbook}kp for the next Textbook`);
+    document.getElementById("multiCount").innerText = ("Current multiplyer: " + multiplier);
+    document.getElementById("pencilID").innerText = (`Each Pencil increases your kps by 0.1 \n You have ${p} Pencils making ${pencilValue * p}kp per second.`);
+    document.getElementById("noteID").innerText = (`Each Notebook increases your kps by 1 \n You have ${n} Notebooks making ${notebookValue * n}kp per second`);
+    document.getElementById("ruleID").innerText = (`Each Ruler increases your kps by 3 \n You have ${r} Rulers making ${rulerValue * r}kp per second`);
+    document.getElementById("textbookID").innerText = (`Each Textbook increases your kps by 5 \n You have ${t} Textbooks making ${textbookValue * t}kp per second`);
     document.getElementById("clickUp").innerText = (`Each upgrade increases your click value by 1 \n You have ${click} clicks. \n ${upgradeCost}kp for the next upgrade \n Your pages are worth ${click * multiplier * clickPower} kp each`);
-    document.getElementById("underText").innerText = (`${passPencil}`);
+    document.getElementById("pencilCostText").innerText = (`${passPencil}`);
     document.getElementById("pencilNum").innerText = (`${p}`);
+    document.getElementById("notebookCostText").innerText = (`${passNotebook}`);
+    document.getElementById("notebookNum").innerText = (`${n}`);
+    document.getElementById("rulerCostText").innerText = (`${passRuler}`);
+    document.getElementById("rulerNum").innerText = (`${r}`);
+    document.getElementById("textbookCostText").innerText = (`${passTextbook}`);
+    document.getElementById("textbookNum").innerText = (`${t}`);
 }
 time()
 

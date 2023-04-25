@@ -24,27 +24,36 @@
                 <span class="tooltiptext" id="clickUp"></span>        
             </button>
         </div>
-        <div>
-            <button onclick="upgradePencil()" class="tooltipE flex-item">
+        <div class="flex-item">
+            <button onclick="upgradePencil()" class="tooltipE ">
                 <div id="pTxt">✏️ Pencil</div>
-                <div2 id="underText">Cost</div2>
+                <div2 id="pencilCostText">Cost</div2>
                 <div3 id="pencilNum"> </div3>
             <div class="tooltiptext" id="pencilID"></div>
             </button>
         </div>
         <div class="flex-item">
-            <button onclick="upgradeNotebook()" class="tooltipE">📓 Notebook
+            <button onclick="upgradeNotebook()" class="tooltipE">
+                <div>📓 Notebook</div>
+                <div2 id="notebookCostText">Cost</div2>
+                <div3 id="notebookNum"> </div3>
             <span class="tooltiptext" id="noteID"></span>     
             </button>
         </div>
         <div class="flex-item">
-            <button onclick="upgradeRuler()" class="tooltipE">📏 Ruler
-            <span class="tooltiptext"  id="ruleID" >Each ruler increases your kps by 3</span>     
+            <button onclick="upgradeRuler()" class="tooltipE">
+                <div>📏 Ruler</div>
+                <div2 id="rulerCostText">Cost</div2>
+                <div3 id="rulerNum"> </div3>
+                <span class="tooltiptext" id="ruleID" ></span>     
             </button>
         </div>
         <div class="flex-item">
-            <button onclick="upgradeTextbook()" class="tooltipE">📚 Textbooks
-            <span class="tooltiptext" id="textbookID">Each textbook increases your kps by 5</span>     
+            <button onclick="upgradeTextbook()" class="tooltipE">
+                <div>📚 Textbooks</div>
+                <div2 id="textbookCostText">Cost</div2>
+                <div3 id="textbookNum"> </div3>
+                <span class="tooltiptext" id="textbookID">Each textbook increases your kps by 5</span>     
             </button>
         </div>
     </div>

@@ -34,13 +34,19 @@ div3{
     height: 154px;
     background: none;
     }
+    
 
+
+.notAffordable {
+    opacity: 0.5;
+    pointer-events: none;
+}
 .info{
     font-size: 20px;
 }
 .wrapper {
     display: flex;
-  }
+}
 
   .wrapper .child{
     font-size: 3vh;
@@ -50,7 +56,18 @@ div3{
     padding: .3em;
     border-radius: 3px;
     flex: 1;
-  }
+}
+.button{
+border:none;
+cursor: pointer;
+appearance: none;
+display: inline-block;
+background-color: #ff000000;
+z-index: 1;
+user-select: none;
+outline: none;
+width: flex;
+}  
 
 .bgImage{
     display: flex;
@@ -69,6 +86,10 @@ h1{
 }
 h2{
     font-size: 40px;
+}
+.flex-item {
+    transition: all 0.1s;
+
 }
 .flex-item:hover {
     transform: scale(1.08);
@@ -129,12 +150,3 @@ h2{
 .tooltipS:hover .tooltiptext {
     visibility: visible;
 }
-    
-button{
-    border:none;
-    cursor: pointer;
-    appearance: none;
-    display: inline-block;
-    background-color: #ff000000;
-    z-index: 1;
-    }  

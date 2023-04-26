@@ -23,20 +23,20 @@ let n = 0
 let p = 0
 let t = 0
 let r = 0
+let c = 0
 let totalPencilIncome = pencilValue * p
 
 function onButtonClick(){
     money += click * multiplier * clickPower
     totalMoney += click * multiplier * clickPower
-    document.getElementById("moneyCounter").innerText = ("Current knowledge: " + money.toFixed() + "kp");
-    document.getElementById("moneyTotal").innerText = ("Total knowledge: " + totalMoney.toFixed() + "kp");
 }
 
 function upgradeClick(){
     if (money >= upgradeCost){
         money -= upgradeCost
         click += 1
-        upgradeCost += 5
+        c += 1
+        upgradeCost += 10 + 2 * c
     }
 }
 
@@ -84,7 +84,7 @@ function time(){
     document.getElementById("moneyCounter").innerText = ("Current knowledge: " + money.toFixed() + "kp");
     document.getElementById("moneyTotal").innerText = ("Total knowledge: " + totalMoney.toFixed() + "kp");
     document.getElementById("multiCount").innerText = ("Current multiplyer: " + multiplier);
-    document.getElementById("pencilID").innerText = (`Each Pencil increases your kps by 0.1 \n You have ${p} Pencils making ${pencilValue * p}kp per second.`);
+    document.getElementById("pencilID").innerText = (`Each Pencil increases your kps by 0.1 \n You have ${p} Pencils making ` + (pencilValue * p).toFixed(1) + "kp per second.");
     document.getElementById("noteID").innerText = (`Each Notebook increases your kps by 1 \n You have ${n} Notebooks making ${notebookValue * n}kp per second`);
     document.getElementById("ruleID").innerText = (`Each Ruler increases your kps by 3 \n You have ${r} Rulers making ${rulerValue * r}kp per second`);
     document.getElementById("textbookID").innerText = (`Each Textbook increases your kps by 5 \n You have ${t} Textbooks making ${textbookValue * t}kp per second`);
@@ -97,6 +97,8 @@ function time(){
     document.getElementById("rulerNum").innerText = (`${r}`);
     document.getElementById("textbookCostText").innerText = (`${passTextbook}`);
     document.getElementById("textbookNum").innerText = (`${t}`);
+    document.getElementById("clickCostText").innerText = (`${upgradeCost}`);
+    document.getElementById("clickNum").innerText = (`${c}`);
 }
 time()
 

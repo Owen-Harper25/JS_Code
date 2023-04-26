@@ -20,12 +20,15 @@
     <div class="child">
         <p2>School Supplies</p2>
         <div class = "flex-item">
-            <button onclick="upgradeClick()" class="tooltipE">Increase Pencil Power
-                <span class="tooltiptext" id="clickUp"></span>        
-            </button>
+            <div onclick="upgradeClick()" class="tooltipE btn">
+                <div>Increase Pencil Power</div>
+                <div2 id="clickCostText">b</div2>  
+                <div3 id="clickNum"></div3>
+            <div class="tooltiptext" id="clickUp">a</div>      
+            </div>
         </div>
         <div class="flex-item">
-            <div onclick="upgradePencil()" class="tooltipE button">
+            <div onclick="upgradePencil()" class="tooltipE btn">
                 <div id="pTxt">✏️ Pencil</div>
                 <div2 id="pencilCostText">Cost</div2>
                 <div3 id="pencilNum"> </div3>
@@ -33,7 +36,7 @@
             </div>
         </div>
         <div class="flex-item">
-            <div onclick="upgradeNotebook()" class="tooltipE">
+            <div onclick="upgradeNotebook()" class="tooltipE btn">
                 <div>📓 Notebook</div>
                 <div2 id="notebookCostText">Cost</div2>
                 <div3 id="notebookNum"> </div3>
@@ -41,7 +44,7 @@
             </div>
         </div>
         <div class="flex-item">
-            <div onclick="upgradeRuler()" class="tooltipE">
+            <div onclick="upgradeRuler()" class="tooltipE btn">
                 <div>📏 Ruler</div>
                 <div2 id="rulerCostText">Cost</div2>
                 <div3 id="rulerNum"> </div3>
@@ -49,7 +52,7 @@
             </div>
         </div>
         <div class="flex-item">
-            <div onclick="upgradeTextbook()" class="tooltipE">
+            <div onclick="upgradeTextbook()" class="tooltipE btn">
                 <div>📚 Textbooks</div>
                 <div2 id="textbookCostText">Cost</div2>
                 <div3 id="textbookNum"> </div3>

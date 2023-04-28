@@ -3,11 +3,12 @@
 <link rel="stylesheet" href="script.css">
 
 <div class="wrapper child">
-        <div class="bgImage">
-            <button class="pageButton" onclick="onButtonClick()">           
-                <img src="images/Page.png" alt="📝" boarder=0/>
-            </button>
-        </div>
+
+    <div class="bgImage">
+        <button class="pageButton" onclick="onButtonClick()">           
+            <img src="images/Page.png" alt="📝" boarder=0/>
+        </button>
+    </div>
 
     <div class="child">
         <p1>Info</p1>
@@ -61,19 +62,20 @@
         </div>
     </div>
 </div>
-<div class="child">
-    <p1>Upgrades</p1>
-    <br>
-    <div class="flex-item">
-            <div onclick="onBagUpgrade()" class="tooltipS btn" id="bagA">
-                <div>🎒</div>
-                <span class="tooltiptext">Backpack: Doubles your pencil power</span>     
+
+<div class="wrapper child">
+    <div class ="child">
+        <p2>Upgrades</p2>
+
+        <div class="flex-item">
+                <div onclick="onBagUpgrade()" class="tooltipS btn" id="bagA">
+                    <div>🎒</div>
+                    <span class="tooltiptext">Backpack: Doubles your pencil power</span>     
+                </div>
+            <div onclick="onMechUpgrade()" class="tooltipS btn" id = mechA>
+                <div>🖊️</div>
+                <span class="tooltiptext">Mechanical Pencil: Doubles your pencil income</span>         
             </div>
-    </div>
-    <div class="flex-item">
-        <div onclick="onMechUpgrade()" class="tooltipS btn" id = mechA>
-            <div>🖊️</div>
-            <span class="tooltiptext">Mechanical Pencil: Doubles your pencil income</span>         
         </div>
     </div>
 </div>

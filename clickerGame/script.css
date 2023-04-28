@@ -54,28 +54,24 @@ div3{
     display: flex;
 }
 
-  .wrapper .child{
-    font-size: 3vh;
-    color: white;
-    background: rgb(104, 104, 104);
-    margin: .1em;
-    padding: .3em;
-    border-radius: 3px;
-    flex: 1;
-    user-select: none;
-}
+    .wrapper .child{
+        font-size: 3vh;
+        color: white;
+        background: rgb(104, 104, 104);
+        margin: .1em;
+        padding: .3em;
+        border-radius: 3px;
+        flex: 1;
+        user-select: none;
+    }
 
-/* .button{
-border:none;
-cursor: pointer;
-appearance: none;
-display: inline-block;
-background-color: #ff000000;
-z-index: 1;
-user-select: none;
-outline: none;
-width: flex;
-}   */
+    .wrapper .shop{
+        display: flex;
+        flex-flow: row wrap;
+        align-content: flex-start;
+        gap: 10px
+    }
+
 
 .bgImage{
     display: flex;

@@ -5,10 +5,14 @@ let income = 0
 let timeA = 0
 let multiplier = 50
 let speed = 1
-let mechPencilCost = 500
 let backPackCost = 200
+let mechPencilCost = 500
+let hNotebookCost = 2000
+let bigTextbookCost = 7000
 let mechPencil = false
 let backPack = false
+let hNotebook = false
+let bigTextbook = false
 let clickPower = 1
 let totalMoney = 0
 let passPencil = 50
@@ -58,7 +62,6 @@ function upgradeNotebook(){
     }
 }
 
-
 function upgradeRuler(){
     if (money >= passRuler){
         money -= passRuler
@@ -85,10 +88,10 @@ function time(){
     document.getElementById("moneyTotal").innerText = ("Total knowledge: " + totalMoney.toFixed() + "kp");
     document.getElementById("multiCount").innerText = ("Current multiplyer: " + multiplier);
     document.getElementById("pencilID").innerText = (`Each Pencil increases your kps by ${pencilValue} \n You have ${p} Pencils making ` + (pencilValue * p).toFixed(1) + "kp per second.");
-    document.getElementById("noteID").innerText = (`Each Notebook increases your kps by 1 \n You have ${n} Notebooks making ${notebookValue * n}kp per second`);
-    document.getElementById("ruleID").innerText = (`Each Ruler increases your kps by 3 \n You have ${r} Rulers making ${rulerValue * r}kp per second`);
-    document.getElementById("textbookID").innerText = (`Each Textbook increases your kps by 5 \n You have ${t} Textbooks making ${textbookValue * t}kp per second`);
-    document.getElementById("clickUp").innerText = (`Each upgrade increases your click value by 1 \n You have ${click} clicks. \n ${upgradeCost}kp for the next upgrade \n Your pages are worth ${click * multiplier * clickPower} kp each`);
+    document.getElementById("noteID").innerText = (`Each Notebook increases your kps by ${notebookValue} \n You have ${n} Notebooks making ${notebookValue * n}kp per second`);
+    document.getElementById("ruleID").innerText = (`Each Ruler increases your kps by ${rulerValue} \n You have ${r} Rulers making ${rulerValue * r}kp per second`);
+    document.getElementById("textbookID").innerText = (`Each Textbook increases your kps by ${textbookValue} \n You have ${t} Textbooks making ${textbookValue * t}kp per second`);
+    document.getElementById("clickUp").innerText = (`Each upgrade increases your click value by ${clickPower} \n You have ${click} clicks. \n ${upgradeCost}kp for the next upgrade \n Your pages are worth ${click * multiplier * clickPower} kp each`);
     document.getElementById("pencilCostText").innerText = (`${passPencil}`);
     document.getElementById("pencilNum").innerText = (`${p}`);
     document.getElementById("notebookCostText").innerText = (`${passNotebook}`);
@@ -119,5 +122,23 @@ function onMechUpgrade(){
         pencilValue *= 2
         document.getElementById("mechA").style.display="none";
         document.getElementById("mechB").style.display="none";
+    }
+}
+
+function onNotebookUpgrade(){
+    if (money >= hNotebookCost && hNotebook === false){
+        hNotebook = true
+        money -= hNotebookCost
+        notebookValue *= 2
+        document.getElementById("Nbook").style.display="none";
+    }
+}
+
+function onTextbookUpgrade(){
+    if (money >= bigTextbookCost && bigTextbook === false){
+        bigTextbook = true
+        money -= bigTextbookCost
+        textbookValue *= 2
+        document.getElementById("Tbook").style.display="none";
     }
 }

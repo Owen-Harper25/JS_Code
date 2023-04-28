@@ -67,27 +67,37 @@
     <div class ="child">
         <p2>Upgrades</p2>
 
-        <div class="flex-item">
-                <div onclick="onBagUpgrade()" class="tooltipS btn" id="bagA">
-                    <div>🎒</div>
-                    <span class="tooltiptext">Backpack: Doubles your pencil power</span>     
-                </div>
-            <div onclick="onMechUpgrade()" class="tooltipS btn" id = mechA>
-                <div>🖊️</div>
-                <span class="tooltiptext">Mechanical Pencil: Doubles your pencil income</span>         
+        <div class ="wrapper shop">
+            <div class="flex-item">
+                    <div onclick="onBagUpgrade()" class="tooltipS btn" id="bagA">
+                        <div>🎒</div>
+                        <span class="tooltiptext">Backpack: Doubles your pencil power</span>     
+                    </div>
             </div>
+            <div class="flex-item">
+                <div onclick="onMechUpgrade()" class="tooltipS btn" id = mechA>
+                    <div>🖊️</div>
+                    <span class="tooltiptext">Mechanical Pencil: Doubles your pencil income</span>         
+                </div>
+            </div>
+            <div class="flex-item">
+                <div onclick="onNotebookUpgrade()" class="tooltipS btn" id = Nbook>
+                    <div>📒</div>
+                    <span class="tooltiptext">Hard Cover: Doubles your notebook income</span>         
+                </div>
+            </div>
+
+            <div class="flex-item">
+                <div onclick="onTextbookUpgrade()" class="tooltipS btn" id = Tbook>
+                    <div>📖</div>
+                    <span class="tooltiptext">More Pages: Doubles your notebook income</span>         
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
-        <!-- <h2 class="header">School Clicker</h2>
-        <p>Click on the page to start learning</p> -->
-            
 
-            <!-- <p class ="p-inline" id ="bagB">First upgrade price is 200kp</p> -->
-            <!-- <p id ="bagB"></p> -->
-
-            <!-- <p class ="p-inline" id ="mechB">First upgrade price is 500kp</p>
-            <p id ="mechA"></p> -->
 
         <script src="script.js"></script>
     </body>

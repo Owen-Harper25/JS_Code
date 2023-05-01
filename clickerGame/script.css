@@ -69,7 +69,7 @@ div3{
         display: flex;
         flex-flow: row wrap;
         align-content: flex-start;
-        gap: 10px
+        /* gap: 10px */
     }
 
 

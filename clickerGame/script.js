@@ -7,12 +7,14 @@ let multiplier = 50
 let speed = 1
 let backPackCost = 200
 let mechPencilCost = 500
+let exRulerCost = 1000
 let hNotebookCost = 2000
-let bigTextbookCost = 7000
+let bigTextbookCost = 5000
 let mechPencil = false
 let backPack = false
 let hNotebook = false
 let bigTextbook = false
+let exRuler = false
 let clickPower = 1
 let totalMoney = 0
 let passPencil = 50
@@ -29,6 +31,11 @@ let t = 0
 let r = 0
 let c = 0
 let totalPencilIncome = pencilValue * p
+let bagB = false
+let pencilB = false
+let rulerB = false
+let notebookB = false
+let textbookB = false
 
 function onButtonClick(){
     money += click * multiplier * clickPower
@@ -92,6 +99,8 @@ function time(){
     document.getElementById("ruleID").innerText = (`Each Ruler increases your kps by ${rulerValue} \n You have ${r} Rulers making ${rulerValue * r}kp per second`);
     document.getElementById("textbookID").innerText = (`Each Textbook increases your kps by ${textbookValue} \n You have ${t} Textbooks making ${textbookValue * t}kp per second`);
     document.getElementById("clickUp").innerText = (`Each upgrade increases your click value by ${clickPower} \n You have ${click} clicks. \n ${upgradeCost}kp for the next upgrade \n Your pages are worth ${click * multiplier * clickPower} kp each`);
+    
+    
     document.getElementById("pencilCostText").innerText = (`${passPencil}`);
     document.getElementById("pencilNum").innerText = (`${p}`);
     document.getElementById("notebookCostText").innerText = (`${passNotebook}`);
@@ -102,16 +111,41 @@ function time(){
     document.getElementById("textbookNum").innerText = (`${t}`);
     document.getElementById("clickCostText").innerText = (`${upgradeCost}`);
     document.getElementById("clickNum").innerText = (`${c}`);
+
+    if (c >= 5){
+        bagB = true
+        document.getElementById("bagDisplay").innerText = ("🎒")
+    }
+
+    if (p >= 5){
+        pencilB = true
+        document.getElementById("pencilDisplay").innerText = ("🖊️")
+    }
+
+    if (n >= 5){
+        notebookB = true
+        document.getElementById("notebookDisplay").innerText = ("📒")
+    }
+
+    if (r >= 5){
+        rulerB = true
+        document.getElementById("rulerDisplay").innerText = ("📐")
+    }
+
+    if (t >= 5){
+        textbookB = true
+        document.getElementById("textbookDisplay").innerText = ("📖")
+    }
 }
 time()
 
 function onBagUpgrade(){
-    if (money >= backPackCost && backPack === false){
+    if (money >= backPackCost && backPack === false && bagB === true){
         backPack = true
         money -= backPackCost
         clickPower += 1
         document.getElementById("bagA").style.display="none";
-        document.getElementById("bagB").style.display="none";
+        document.getElementById("bagDisplay").style.display="none";
     }
 }
 
@@ -121,7 +155,6 @@ function onMechUpgrade(){
         money -= mechPencilCost
         pencilValue *= 2
         document.getElementById("mechA").style.display="none";
-        document.getElementById("mechB").style.display="none";
     }
 }
 
@@ -140,5 +173,14 @@ function onTextbookUpgrade(){
         money -= bigTextbookCost
         textbookValue *= 2
         document.getElementById("Tbook").style.display="none";
+    }
+}
+
+function onRulerUpgrade(){
+    if (money >= exRulerCost && exRuler === false){
+        exRuler = true
+        money -= exRulerCost
+        rulerValue *= 2
+        document.getElementById("Ruler").style.display="none";
     }
 }

@@ -86,6 +86,14 @@ function upgradeTextbook(){
         passTextbook += 100 + 9 * t
     }
 }
+
+const upgrades = {
+    pencil{
+        cost : 15,
+        value : 0.1,
+        priceIncrease : (cost + 3 * p)
+    }
+}
 function time(){
     requestAnimationFrame(time)
     money += multiplier * speed * income / 60

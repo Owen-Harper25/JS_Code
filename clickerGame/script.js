@@ -86,14 +86,22 @@ function upgradeTextbook(){
         passTextbook += 100 + 9 * t
     }
 }
+// function upgradeItem(){
+//     if (money >= this.upgrades.key){
+//         money -= upgrades.cost
+//         upgrades.number += 1
 
-const upgrades = {
-    pencil{
-        cost : 15,
-        value : 0.1,
-        priceIncrease : (cost + 3 * p)
-    }
-}
+//     }
+// }
+// const upgrades = {
+//     pencil: {
+//         cost: 15,
+//         value: 0.1,
+//         number: 0,
+//         priceIncrease: (number + 3 * p)
+//     }
+// }
+
 function time(){
     requestAnimationFrame(time)
     money += multiplier * speed * income / 60
@@ -146,6 +154,17 @@ function time(){
     }
 }
 time()
+
+const upgrade = {
+    bag: {
+        cost: 200,
+        effect: clickPower += 1
+    }
+}
+
+function upgradeBox(){
+    
+}
 
 function onBagUpgrade(){
     if (money >= backPackCost && backPack === false && bagB === true){

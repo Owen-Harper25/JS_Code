@@ -5,16 +5,6 @@ let income = 0
 let timeA = 0
 let multiplier = 50
 let speed = 1
-let backPackCost = 200
-let mechPencilCost = 500
-let exRulerCost = 1000
-let hNotebookCost = 2000
-let bigTextbookCost = 5000
-let mechPencil = false
-let backPack = false
-let hNotebook = false
-let bigTextbook = false
-let exRuler = false
 let clickPower = 1
 let totalMoney = 0
 let passPencil = 50
@@ -51,14 +41,14 @@ function upgradeClick(){
     }
 }
 
-function upgradePencil(){
-    if (money >= passPencil){
-        money -= passPencil
-        income += pencilValue
-        p +=1
-        passPencil += 15 + 3 * p
-    }
-}
+// function upgradePencil(){
+//     if (money >= passPencil){
+//         money -= passPencil
+//         income += pencilValue
+//         p +=1
+//         passPencil += 15 + 3 * p
+//     }
+// }
 
 function upgradeNotebook(){
     if (money >= passNotebook){
@@ -86,21 +76,38 @@ function upgradeTextbook(){
         passTextbook += 100 + 9 * t
     }
 }
-// function upgradeItem(){
-//     if (money >= this.upgrades.key){
-//         money -= upgrades.cost
-//         upgrades.number += 1
 
-//     }
-// }
-// const upgrades = {
-//     pencil: {
-//         cost: 15,
-//         value: 0.1,
-//         number: 0,
-//         priceIncrease: (number + 3 * p)
-//     }
-// }
+const supplies = {
+    pencil: {
+        cost: 50,
+        value: 0.1,
+        number: 0,
+    },
+
+}
+
+initSupplies()
+
+function initSupplies() {
+
+    for (const supplyName in supplies) {
+
+        const element = document.getElementById(supplyName)
+    
+        element.addEventListener('click', () => { buySupply(supplyName) })
+    }
+}
+
+function buySupply(supplyName) {
+
+    const supply = supplies[supplyName]
+
+    if (money >= supply.cost){
+        money -= supply.cost
+        supply.number += 1
+        console.log("bought")
+    }
+}
 
 function time(){
     requestAnimationFrame(time)
@@ -117,8 +124,8 @@ function time(){
     document.getElementById("clickUp").innerText = (`Each upgrade increases your click value by ${clickPower} \n You have ${click} clicks. \n ${upgradeCost}kp for the next upgrade \n Your pages are worth ${click * multiplier * clickPower} kp each`);
     
     
-    document.getElementById("pencilCostText").innerText = (`${passPencil}`);
-    document.getElementById("pencilNum").innerText = (`${p}`);
+    document.getElementById("pencilCostText").innerText = (`${supplies.pencil.cost}`);
+    document.getElementById("pencilNum").innerText = (`${supplies.pencil.number}`);
     document.getElementById("notebookCostText").innerText = (`${passNotebook}`);
     document.getElementById("notebookNum").innerText = (`${n}`);
     document.getElementById("rulerCostText").innerText = (`${passRuler}`);
@@ -155,59 +162,64 @@ function time(){
 }
 time()
 
-const upgrade = {
+const upgrades = {
     bag: {
         cost: 200,
-        effect: clickPower += 1
+        effect: () => { clickPower += 1 },
+        bought: false,
+        icon: '🎒'
+    },
+
+    mechA: {
+        cost: 500,
+        effect: () => { pencilValue *= 2 },
+        bought: false,
+        icon: '🖊️'
+    },
+
+    Nbook: {
+        cost: 1000,
+        effect: () => { notebookValue *= 2 },
+        bought: false,
+        icon: '📒'
+    },
+
+    Ruler: {
+        cost: 2000,
+        effect: () => { rulerValue *= 2 },
+        bought: false,
+        icon: '📐'
+    },
+
+    Tbook: {
+        cost: 5000,
+        effect: () => { textbookValue *= 2 },
+        bought: false,
+        icon: '📖'
     }
 }
 
-function upgradeBox(){
+initUpgrades()
+
+function initUpgrades() {
+
+    for (const upgradeName in upgrades) {
+
+        const element = document.getElementById(upgradeName)
     
-}
-
-function onBagUpgrade(){
-    if (money >= backPackCost && backPack === false && bagB === true){
-        backPack = true
-        money -= backPackCost
-        clickPower += 1
-        document.getElementById("bagA").style.display="none";
-        document.getElementById("bagDisplay").style.display="none";
+        element.addEventListener('click', () => { upgrade(upgradeName) })
     }
 }
 
-function onMechUpgrade(){
-    if (money >= mechPencilCost && mechPencil === false){
-        mechPencil = true
-        money -= mechPencilCost
-        pencilValue *= 2
-        document.getElementById("mechA").style.display="none";
-    }
-}
+function upgrade(upgradeName) {
 
-function onNotebookUpgrade(){
-    if (money >= hNotebookCost && hNotebook === false){
-        hNotebook = true
-        money -= hNotebookCost
-        notebookValue *= 2
-        document.getElementById("Nbook").style.display="none";
-    }
-}
+    const upgrade = upgrades[upgradeName]
 
-function onTextbookUpgrade(){
-    if (money >= bigTextbookCost && bigTextbook === false){
-        bigTextbook = true
-        money -= bigTextbookCost
-        textbookValue *= 2
-        document.getElementById("Tbook").style.display="none";
-    }
-}
+    if (money >= upgrade.cost && upgrade.bought == false){
 
-function onRulerUpgrade(){
-    if (money >= exRulerCost && exRuler === false){
-        exRuler = true
-        money -= exRulerCost
-        rulerValue *= 2
-        document.getElementById("Ruler").style.display="none";
+        upgrade.bought = true
+        money -= upgrade.cost
+        upgrade.effect()
+        document.getElementById(upgradeName).style.display="none";
     }
 }

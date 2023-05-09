@@ -1,4 +1,4 @@
-let money = 0
+let money = 10000000000
 let click = 1
 let upgradeCost = 10
 let income = 0
@@ -8,24 +8,24 @@ let speed = 1
 let clickPower = 1
 let totalMoney = 0
 let passPencil = 50
-let passNotebook = 100
-let passTextbook = 500
-let passRuler = 250
-let pencilValue = 0.1
-let notebookValue = 1
-let rulerValue = 3
-let textbookValue = 5
-let n = 0
-let p = 0
-let t = 0
-let r = 0
-let c = 0
-let totalPencilIncome = pencilValue * p
-let bagB = false
-let pencilB = false
-let rulerB = false
-let notebookB = false
-let textbookB = false
+// let passNotebook = 100
+// let passTextbook = 500
+// let passRuler = 250
+// let pencilValue = 0.1
+// let notebookValue = 1
+// let rulerValue = 3
+// let textbookValue = 5
+// let n = 0
+// let p = 0
+// let t = 0
+// let r = 0
+ let c = 0
+// let totalPencilIncome = pencilValue * p
+// let bagB = false
+// let pencilB = false
+// let rulerB = false
+// let notebookB = false
+// let textbookB = false
 
 function onButtonClick(){
     money += click * multiplier * clickPower
@@ -50,40 +50,61 @@ function upgradeClick(){
 //     }
 // }
 
-function upgradeNotebook(){
-    if (money >= passNotebook){
-        money -= passNotebook
-        income += notebookValue
-        n +=1
-        passNotebook += 15 + 5 * n
-    }
-}
+// function upgradeNotebook(){
+//     if (money >= passNotebook){
+//         money -= passNotebook
+//         income += notebookValue
+//         n +=1
+//         passNotebook += 15 + 5 * n
+//     }
+// }
 
-function upgradeRuler(){
-    if (money >= passRuler){
-        money -= passRuler
-        income += rulerValue
-        r +=1
-        passRuler += 50 + 7 * r
-    }
-}
+// function upgradeRuler(){
+//     if (money >= passRuler){
+//         money -= passRuler
+//         income += rulerValue
+//         r +=1
+//         passRuler += 50 + 7 * r
+//     }
+// }
 
-function upgradeTextbook(){
-    if (money >= passTextbook){
-        money -= passTextbook
-        income += textbookValue
-        t +=1
-        passTextbook += 100 + 9 * t
-    }
-}
+// function upgradeTextbook(){
+//     if (money >= passTextbook){
+//         money -= passTextbook
+//         income += textbookValue
+//         t +=1
+//         passTextbook += 100 + 9 * t
+//     }
+// }
 
 const supplies = {
     pencil: {
         cost: 50,
         value: 0.1,
         number: 0,
+        costIncrease: 15 
     },
 
+    notebook: {
+        cost: 100,
+        value: 1,
+        number: 0,
+        costIncrease: 50
+    },
+
+    ruler: {
+        cost: 250,
+        value: 3,
+        number: 0,
+        costIncrease: 150
+    },
+
+    textbook: {
+        cost: 500,
+        value: 5,
+        number: 0,
+        costIncrease: 500
+    }
 }
 
 initSupplies()
@@ -105,6 +126,7 @@ function buySupply(supplyName) {
     if (money >= supply.cost){
         money -= supply.cost
         supply.number += 1
+        supply.cost += supply.costIncrease
         console.log("bought")
     }
 }
@@ -113,52 +135,55 @@ function time(){
     requestAnimationFrame(time)
     money += multiplier * speed * income / 60
     totalMoney += multiplier * speed * income / 60
+    income += supplies.pencil.value * supplies.pencil.number + supplies.notebook.value * supplies.notebook.number + supplies.ruler.value * supplies.ruler.number + supplies.textbook.value * supplies.textbook.number
     document.getElementById("incomeD").innerText = ("You are making " + (income * multiplier * speed).toFixed(1) + "kp per second");
     document.getElementById("moneyCounter").innerText = ("Current knowledge: " + money.toFixed() + "kp");
     document.getElementById("moneyTotal").innerText = ("Total knowledge: " + totalMoney.toFixed() + "kp");
     document.getElementById("multiCount").innerText = ("Current multiplyer: " + multiplier);
-    document.getElementById("pencilID").innerText = (`Each Pencil increases your kps by ${pencilValue} \n You have ${p} Pencils making ` + (pencilValue * p).toFixed(1) + "kp per second.");
-    document.getElementById("noteID").innerText = (`Each Notebook increases your kps by ${notebookValue} \n You have ${n} Notebooks making ${notebookValue * n}kp per second`);
-    document.getElementById("ruleID").innerText = (`Each Ruler increases your kps by ${rulerValue} \n You have ${r} Rulers making ${rulerValue * r}kp per second`);
-    document.getElementById("textbookID").innerText = (`Each Textbook increases your kps by ${textbookValue} \n You have ${t} Textbooks making ${textbookValue * t}kp per second`);
+    // document.getElementById("pencilID").innerText = (`Each Pencil increases your kps by ${pencilValue} \n You have ${p} Pencils making ` + (pencilValue * p).toFixed(1) + "kp per second.");
+    // document.getElementById("noteID").innerText = (`Each Notebook increases your kps by ${notebookValue} \n You have ${n} Notebooks making ${notebookValue * n}kp per second`);
+    // document.getElementById("ruleID").innerText = (`Each Ruler increases your kps by ${rulerValue} \n You have ${r} Rulers making ${rulerValue * r}kp per second`);
+    // document.getElementById("textbookID").innerText = (`Each Textbook increases your kps by ${textbookValue} \n You have ${t} Textbooks making ${textbookValue * t}kp per second`);
     document.getElementById("clickUp").innerText = (`Each upgrade increases your click value by ${clickPower} \n You have ${click} clicks. \n ${upgradeCost}kp for the next upgrade \n Your pages are worth ${click * multiplier * clickPower} kp each`);
     
-    
-    document.getElementById("pencilCostText").innerText = (`${supplies.pencil.cost}`);
-    document.getElementById("pencilNum").innerText = (`${supplies.pencil.number}`);
-    document.getElementById("notebookCostText").innerText = (`${passNotebook}`);
-    document.getElementById("notebookNum").innerText = (`${n}`);
-    document.getElementById("rulerCostText").innerText = (`${passRuler}`);
-    document.getElementById("rulerNum").innerText = (`${r}`);
-    document.getElementById("textbookCostText").innerText = (`${passTextbook}`);
-    document.getElementById("textbookNum").innerText = (`${t}`);
+    document.getElementById("pencilID").innerText = (`Each ${supplies.supplyName} increases your kps by ${supplies.pencil.value} \n You have ${supplies.number} ${supplies.supplyName} making ${supplies.number * supplies.value} kp per second.`);
+
     document.getElementById("clickCostText").innerText = (`${upgradeCost}`);
     document.getElementById("clickNum").innerText = (`${c}`);
 
-    if (c >= 5){
-        bagB = true
-        document.getElementById("bagDisplay").innerText = ("🎒")
-    }
+    document.getElementById("pencilNum").innerText = (supplies.pencil.number)
+    document.getElementById("pencilPrice").innerText = (supplies.pencil.cost)
+    document.getElementById("notebookNum").innerText = (supplies.notebook.number)
+    document.getElementById("notebookPrice").innerText = (supplies.notebook.cost)
+    document.getElementById("rulerNum").innerText = (supplies.ruler.number)
+    document.getElementById("rulerPrice").innerText = (supplies.ruler.cost)
+    document.getElementById("textbookNum").innerText = (supplies.textbook.number)
+    document.getElementById("textbookPrice").innerText = (supplies.textbook.cost)
 
-    if (p >= 5){
-        pencilB = true
-        document.getElementById("pencilDisplay").innerText = ("🖊️")
-    }
+    // if (c >= 5){
+    //     bagB = true
+    //     document.getElementById("bagDisplay").innerText = ("🎒")
+    // }
 
-    if (n >= 5){
-        notebookB = true
-        document.getElementById("notebookDisplay").innerText = ("📒")
-    }
+    // if (p >= 5){
+    //     pencilB = true
+    //     document.getElementById("pencilDisplay").innerText = ("🖊️")
+    // }
 
-    if (r >= 5){
-        rulerB = true
-        document.getElementById("rulerDisplay").innerText = ("📐")
-    }
+    // if (n >= 5){
+    //     notebookB = true
+    //     document.getElementById("notebookDisplay").innerText = ("📒")
+    // }
 
-    if (t >= 5){
-        textbookB = true
-        document.getElementById("textbookDisplay").innerText = ("📖")
-    }
+    // if (r >= 5){
+    //     rulerB = true
+    //     document.getElementById("rulerDisplay").innerText = ("📐")
+    // }
+
+    // if (t >= 5){
+    //     textbookB = true
+    //     document.getElementById("textbookDisplay").innerText = ("📖")
+    // }
 }
 time()
 

@@ -84,11 +84,13 @@ function buySupply(supplyName) {
         document.getElementById(supplyName + 'Tooltip').innerText = (`Each ${supplyName} increases your kps by ${supply.value} \n You have ${supply.number} ${supplyName} making ` + (supply.number * supply.value).toFixed(1) + `kp per second.`);
         document.getElementById(supplyName + 'CostText').innerText = (`${supply.cost}`);
         document.getElementById(supplyName + 'Amount').innerText = (`${supply.number}`);
+
         // console.log(supply.number >= 5)
        
         if (supply.number >= 5){
             supply.unboxed = true
             console.log("Unboxed")
+            update()
 
         }
     }
@@ -97,12 +99,10 @@ function buySupply(supplyName) {
 //Want to refresh data with a function
 
 function update(){
-    for (const supply in supplies) {
-        
-        document.getElementById(supplyName)
+    for (const supplName in supplies) {
+
         console.log("Help")
     }
-
 }
 
 
@@ -119,14 +119,9 @@ function time(){
 
     document.getElementById("clickCostText").innerText = (`${upgradeCost}`);
     document.getElementById("clickNum").innerText = (`${c}`);
-
-
-    if (c >= 5){
-        bagB = true
-        document.getElementById("bagDisplay").innerText = ("🎒")
-    }
 }
 
+update()
 time()
 
 const upgrades = {
@@ -136,6 +131,7 @@ const upgrades = {
         avalible: false,
         bought: false,
         icon: '🎒',
+        condition: () => { return c >= 5 == true},
     },
 
     mechA: {
@@ -145,22 +141,20 @@ const upgrades = {
         bought: false,
         icon: '🖊️',
         condition: () => { return supplies.pencil.unboxed == true},
-        connection: 'pencil',
     },
 
     Nbook: {
         cost: 1000,
-        effect: () => { notebookValue *= 2 },
+        effect: () => { supplies.notebook.value *= 2 },
         avalible: false,
         bought: false,
         icon: '📒',
         condition: () => { return supplies.notebook.unboxed == true},
-        connection: 'notebook',
     },
 
     Ruler: {
         cost: 2000,
-        effect: () => { rulerValue *= 2 },
+        effect: () => { supplies.ruler.value *= 2 },
         avalible: false,
         bought: false,
         condition: () => { return supplies.ruler.unboxed == true},
@@ -169,7 +163,7 @@ const upgrades = {
 
     Tbook: {
         cost: 5000,
-        effect: () => { textbookValue *= 2 },
+        effect: () => { supplies.textbook.value *= 2 },
         avalible: false,
         bought: false,
         condition: () => { return supplies.textbook.unboxed == true},
@@ -196,6 +190,7 @@ function upgrade(upgradeName) {
     if (upgrade.condition() == true){
         console.log("Upgrade Ready")
         document.getElementById(upgradeName + 'Display').innerText = (upgrades.icon)
+        update()
     }
 
     if (money >= upgrade.cost && upgrade.bought == false && upgrade.condition() == true){
@@ -204,6 +199,6 @@ function upgrade(upgradeName) {
         upgrade.effect()
         document.getElementById(upgradeName).style.display="none";
         console.log(upgrade.condition())
+        update()
     }
-
 }

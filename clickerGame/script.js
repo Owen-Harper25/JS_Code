@@ -80,6 +80,7 @@ function buySupply(supplyName) {
         money -= supply.cost
         supply.number += 1
         supply.cost += supply.costIncrease
+        //I need to refresh this data
         document.getElementById(supplyName + 'Tooltip').innerText = (`Each ${supplyName} increases your kps by ${supply.value} \n You have ${supply.number} ${supplyName} making ` + (supply.number * supply.value).toFixed(1) + `kp per second.`);
         document.getElementById(supplyName + 'CostText').innerText = (`${supply.cost}`);
         document.getElementById(supplyName + 'Amount').innerText = (`${supply.number}`);
@@ -88,9 +89,20 @@ function buySupply(supplyName) {
         if (supply.number >= 5){
             supply.unboxed = true
             console.log("Unboxed")
-            document.getElementById(supplyName + 'Display').innerText = (upgrades.icon)
+
         }
     }
+}
+
+//Want to refresh data with a function
+
+function update(){
+    for (const supply in supplies) {
+        
+        document.getElementById(supplyName)
+        console.log("Help")
+    }
+
 }
 
 
@@ -113,28 +125,8 @@ function time(){
         bagB = true
         document.getElementById("bagDisplay").innerText = ("🎒")
     }
-
-
-    // if (p >= 5){
-    //     pencilB = true
-    //     document.getElementById("pencilDisplay").innerText = ("🖊️")
-    // }
-
-    // if (n >= 5){
-    //     notebookB = true
-    //     document.getElementById("notebookDisplay").innerText = ("📒")
-    // }
-
-    // if (r >= 5){
-    //     rulerB = true
-    //     document.getElementById("rulerDisplay").innerText = ("📐")
-    // }
-
-    // if (t >= 5){
-    //     textbookB = true
-    //     document.getElementById("textbookDisplay").innerText = ("📖")
-    // }
 }
+
 time()
 
 const upgrades = {
@@ -144,7 +136,6 @@ const upgrades = {
         avalible: false,
         bought: false,
         icon: '🎒',
-
     },
 
     mechA: {
@@ -153,7 +144,7 @@ const upgrades = {
         avalible: false,
         bought: false,
         icon: '🖊️',
-        condition: () => {supplies.pencil.unboxed == true},
+        condition: () => { return supplies.pencil.unboxed == true},
         connection: 'pencil',
     },
 
@@ -163,6 +154,7 @@ const upgrades = {
         avalible: false,
         bought: false,
         icon: '📒',
+        condition: () => { return supplies.notebook.unboxed == true},
         connection: 'notebook',
     },
 
@@ -171,6 +163,7 @@ const upgrades = {
         effect: () => { rulerValue *= 2 },
         avalible: false,
         bought: false,
+        condition: () => { return supplies.ruler.unboxed == true},
         icon: '📐'
     },
 
@@ -179,6 +172,7 @@ const upgrades = {
         effect: () => { textbookValue *= 2 },
         avalible: false,
         bought: false,
+        condition: () => { return supplies.textbook.unboxed == true},
         icon: '📖'
     }
 }
@@ -191,26 +185,25 @@ function initUpgrades() {
 
         const element = document.getElementById(upgradeName)
         element.addEventListener('click', () => { upgrade(upgradeName) })
-        console.log(upgrades.mechA.condition)
-        let name = upgradeTitle
+        console.log(upgrades.mechA.condition())
     }
 }
 
 function upgrade(upgradeName) {
 
     const upgrade = upgrades[upgradeName]
+    //I need to access this data too
+    if (upgrade.condition() == true){
+        console.log("Upgrade Ready")
+        document.getElementById(upgradeName + 'Display').innerText = (upgrades.icon)
+    }
 
     if (money >= upgrade.cost && upgrade.bought == false && upgrade.condition() == true){
         upgrade.bought = true
         money -= upgrade.cost
         upgrade.effect()
         document.getElementById(upgradeName).style.display="none";
-        // console.log(supplies.pencil.number >= 5)
         console.log(upgrade.condition())
-  
     }
 
-    if (upgrade.condition == true){
-        console.log("Upgrade Ready")
-    }
 }

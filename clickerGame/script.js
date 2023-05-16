@@ -1,14 +1,14 @@
-let money = 10000000000
+let money = 100000000
 let income = 0
 let timeA = 0
-let multiplier = 50
+let multiplier = 1
 let speed = 1
 let clickPower = 1
 let totalMoney = 0
 let passPencil = 50
-// let click = 1
+let click = 1
 // let upgradeCost = 10
-// let c = 0
+let c = 0
 
 const supplies = {
 
@@ -44,24 +44,24 @@ const supplies = {
         unboxed: false
     },
 
-    // teacher: {
-    //     cost: 1000,
-    //     value: 5,
-    //     number: 0,
-    //     costIncrease: 1000,
-    //     unboxed: false
-    // },
+    teacher: {
+        cost: 1000,
+        value: 10,
+        number: 0,
+        costIncrease: 1000,
+        unboxed: false
+    },
 }
 
 const upgrades = {
-    // bag: {
-    //     cost: 200,
-    //     effect: () => { clickPower += 1 },
-    //     avalible: false,
-    //     bought: false,
-    //     icon: '🎒',
-    //     condition: () => { return c >= 5 == true},
-    // },
+    bag: {
+        cost: 200,
+        effect: () => {clickPower += 1},
+        avalible: false,
+        bought: false,
+        icon: '🎒',
+        condition: () => {return c >= 50},
+    },
 
     mechA: {
         cost: 500,
@@ -69,33 +69,33 @@ const upgrades = {
         avalible: false,
         bought: false,
         icon: '🖊️',
-        condition: () => { return supplies.pencil.unboxed == true},
+        condition: () => {return supplies.pencil.unboxed},
     },
 
     Nbook: {
         cost: 1000,
-        effect: () => { supplies.notebook.value *= 2 },
+        effect: () => {supplies.notebook.value *= 2},
         avalible: false,
         bought: false,
         icon: '📒',
-        condition: () => { return supplies.notebook.unboxed == true},
+        condition: () => {return supplies.notebook.unboxed},
     },
 
     Ruler: {
         cost: 2000,
-        effect: () => { supplies.ruler.value *= 2 },
+        effect: () => {supplies.ruler.value *= 2},
         avalible: false,
         bought: false,
-        condition: () => { return supplies.ruler.unboxed == true},
+        condition: () => {return supplies.ruler.unboxed},
         icon: '📐'
     },
 
     Tbook: {
         cost: 5000,
-        effect: () => { supplies.textbook.value *= 2 },
+        effect: () => {supplies.textbook.value *= 2},
         avalible: false,
         bought: false,
-        condition: () => { return supplies.textbook.unboxed == true},
+        condition: () => {return supplies.textbook.unboxed},
         icon: '📖'
     }
 }
@@ -114,17 +114,15 @@ function buySupply(supplyName) {
 
     const supply = supplies[supplyName]
 
-    if (money >= supply.cost){
+    if (money >= supply.cost) {
         money -= supply.cost
         supply.number += 1
         supply.cost += supply.costIncrease
             
         if (supply.number >= 5){
             supply.unboxed = true
-            // console.log("Unboxed")
-            
+            // console.log("Unboxed")  
         }
-
         update()
     }
 }
@@ -150,7 +148,7 @@ function upgrade(upgradeName) {
         update()
     }
 }
-
+ 
 function update(){
 
     for (const supplyName in supplies) {
@@ -163,9 +161,7 @@ function update(){
     for (const upgradeName in upgrades){
         const upgrade = upgrades[upgradeName]
         if (upgrade.condition() == true){
-            console.log("Upgrade Ready")
             document.getElementById(upgradeName + 'Display').innerText = (upgrade.icon)
-            console.log('Icon Change A')
         }
     }
 }
@@ -173,30 +169,30 @@ function update(){
 function onButtonClick(){
     money += multiplier * clickPower
     totalMoney += multiplier * clickPower
-}
-
-function upgradeClick(){
-    if (money >= upgradeCost){
-        money -= upgradeCost
-        click += 1
-        c += 1
-        upgradeCost += 10 + 2 * c
-    }
+    c += 1
+    update()
 }
 
 function time(){
     requestAnimationFrame(time)
-    money += multiplier * speed * income / 60
-    totalMoney += multiplier * speed * income / 60
-    income += supplies.pencil.value * supplies.pencil.number + supplies.notebook.value * supplies.notebook.number + supplies.ruler.value * supplies.ruler.number + supplies.textbook.value * supplies.textbook.number
-    document.getElementById("incomeD").innerText = ("You are making " + (income * multiplier * speed).toFixed(1) + "kp per second");
+
+    let localIncome = 0
+
+    for (const supplyName in supplies) {
+        const supply = supplies[supplyName]
+        localIncome += supply.value * supply.number
+        console.log(localIncome)
+    }
+
+    localIncome = round(localIncome, 2)
+    
+    money += multiplier * speed * localIncome / 60
+    totalMoney += multiplier * speed * localIncome / 60
+    // income += supplies.pencil.value * supplies.pencil.number + supplies.notebook.value * supplies.notebook.number + supplies.ruler.value * supplies.ruler.number + supplies.textbook.value * supplies.textbook.number + supplies.teacher.value * supplies.teacher.number
+    document.getElementById("incomeD").innerText = ("You are making " + localIncome * multiplier * speed + "kp per second");
     document.getElementById("moneyCounter").innerText = ("Current knowledge: " + money.toFixed() + "kp");
     document.getElementById("moneyTotal").innerText = ("Total knowledge: " + totalMoney.toFixed() + "kp");
     document.getElementById("multiCount").innerText = ("Current multiplyer: " + multiplier);
-
-
-    // document.getElementById("clickCostText").innerText = (`${upgradeCost}`);
-    // document.getElementById("clickNum").innerText = (`${c}`);
 
 }
 

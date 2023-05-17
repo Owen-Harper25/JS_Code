@@ -7,7 +7,6 @@ let clickPower = 1
 let totalMoney = 0
 let passPencil = 50
 let click = 1
-// let upgradeCost = 10
 let c = 0
 
 const supplies = {
@@ -184,16 +183,14 @@ function time(){
         console.log(localIncome)
     }
 
-    localIncome = round(localIncome, 2)
+    localIncome = parseInt(localIncome.toFixed(2))
     
     money += multiplier * speed * localIncome / 60
     totalMoney += multiplier * speed * localIncome / 60
-    // income += supplies.pencil.value * supplies.pencil.number + supplies.notebook.value * supplies.notebook.number + supplies.ruler.value * supplies.ruler.number + supplies.textbook.value * supplies.textbook.number + supplies.teacher.value * supplies.teacher.number
     document.getElementById("incomeD").innerText = ("You are making " + localIncome * multiplier * speed + "kp per second");
     document.getElementById("moneyCounter").innerText = ("Current knowledge: " + money.toFixed() + "kp");
     document.getElementById("moneyTotal").innerText = ("Total knowledge: " + totalMoney.toFixed() + "kp");
     document.getElementById("multiCount").innerText = ("Current multiplyer: " + multiplier);
-
 }
 
 initSupplies()

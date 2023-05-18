@@ -1,13 +1,14 @@
-let money = 1000
+let money = 0
 let income = 0
 let timeA = 0
-let multiplier = 1
+let multiplier = 50
 let speed = 1
 let clickPower = 1
 let totalMoney = 0
 let passPencil = 50
 let click = 1
 let c = 0
+let grade = 0
 
 const supplies = {
 
@@ -169,7 +170,7 @@ function upgrade(upgradeName) {
         update()
     }
 }
- 
+
 function update(){
 
     for (const supplyName in supplies) {
@@ -195,6 +196,7 @@ function onButtonClick(){
     totalMoney += multiplier * clickPower
     c += 1
     update()
+
 }
 
 function time(){
@@ -235,10 +237,35 @@ function time(){
     document.getElementById("moneyCounter").innerText = ("Current knowledge: " + money.toFixed() + "kp");
     document.getElementById("moneyTotal").innerText = ("Total knowledge: " + totalMoney.toFixed() + "kp");
     document.getElementById("multiCount").innerText = ("Current multiplyer: " + multiplier);
-
+    document.getElementById("grade").innerText = (`You are in grade ${grade}`)
+    getGrade()
 
 }
 
+function getGrade(){
+    if (totalMoney >= 5000){
+        grade = 4
+        document.getElementById("background").classList = ('gradeFour')
+    }
+    
+    else if (totalMoney >= 1000){
+        grade = 3
+        document.getElementById("background").classList = ('gradeThree')
+    }
+
+    else if (totalMoney >= 500){
+        grade = 2
+        document.getElementById("background").classList = ('gradeTwo')
+    }
+
+    else if (totalMoney >= 0){
+        grade = 1
+        document.getElementById("background").classList = ('gradeOne')
+    }
+}
+
+
+getGrade()
 initSupplies()
 initUpgrades()
 update()

@@ -116,10 +116,24 @@ h2{
     display: inline;
 }
 
+.gradeOne{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-size: cover;
+    background-image: url('images/Kindi.jpg')
+}
 
-
-
-
+.gradeTwo{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('images/Grade 2.jpg')
+}
+.gradeThree{
+    background-color: #1ccebf;
+}
+.gradeFour{
+    background-color: #ce1c99;
+}
 
 .tooltipE {
     position: relative;

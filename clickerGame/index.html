@@ -2,122 +2,125 @@
 <html lang = en>
 <link rel="stylesheet" href="script.css">
 
-<div class="wrapper child">
+<body id="background">
 
-    <div class="bgImage">
-        <button class="pageButton" onclick="onButtonClick()">           
-            <img src="images/Page.png" alt="📝" boarder=0/>
-        </button>
+    <div class="wrapper child">
+
+        <div class="bgImage">
+            <button class="pageButton" onclick="onButtonClick()">           
+                <img src="images/Page.png" alt="📝" boarder=0/>
+            </button>
+        </div>
+
+        <div class="child">
+            <p1>Info</p1>
+            <p id = "moneyCounter" class="info"></p>
+            <p id = "moneyTotal" class="info"></p>
+            <p id = "incomeD" class="info"></p>    
+            <p id = "multiCount" class="info"></p>
+            <p id = "grade" class="info"></p>
+        </div>
+
+        <div class="child">
+            <p2>School Supplies</p2>
+                    <div class="flex-item">
+                <div class="tooltipE btn" id="pencil">
+                    <div>✏️ Pencil</div>
+                    <div2 id="pencilCostText">Cost</div2>
+                    <div3 id="pencilAmount">Amount</div3>
+                <div class="tooltiptext" id="pencilTooltip"></div>
+                </div>
+            </div>
+            <div class="flex-item">
+                <div class="tooltipE btn" id="notebook">
+                    <div>📓 Notebook</div>
+                    <div2 id="notebookCostText">Cost</div2>
+                    <div3 id="notebookAmount">Amount</div3>
+                <span class="tooltiptext" id="notebookTooltip"></span>     
+                </div>
+            </div>
+            <div class="flex-item">
+                <div class="tooltipE btn" id="ruler">
+                    <div>📏 Ruler</div>
+                    <div2 id="rulerCostText">Cost</div2>
+                    <div3 id="rulerAmount">Amount</div3>
+                    <span class="tooltiptext" id="rulerTooltip" ></span>     
+                </div>
+            </div>
+            <div class="flex-item">
+                <div class="tooltipE btn" id="textbook">
+                    <div>📚 Textbooks</div>
+                    <div2 id="textbookCostText">Cost</div2>
+                    <div3 id="textbookAmount">Amount</div3>
+                    <span class="tooltiptext" id="textbookTooltip"></span>     
+                </div>
+            </div>
+            <div class="flex-item">
+                <div class="tooltipE btn" id="teacher">
+                    <div>👨‍🏫 Teacher</div>
+                    <div2 id="teacherCostText">Cost</div2>
+                    <div3 id="teacherAmount">Amount</div3>
+                    <span class="tooltiptext" id="teacherTooltip"></span>     
+                </div>
+            </div>
+
+
+
+
+        </div>
     </div>
 
-    <div class="child">
-        <p1>Info</p1>
-        <p id = "moneyCounter" class="info"></p>
-        <p id = "moneyTotal" class="info"></p>
-        <p id = "incomeD" class="info"></p>    
-        <p id = "multiCount" class="info"></p>
-    </div>
+    <div class="wrapper child">
+        <div class ="child">
+            <p2>Upgrades</p2>
 
-    <div class="child">
-        <p2>School Supplies</p2>
+            <div class ="wrapper shop">
                 <div class="flex-item">
-            <div class="tooltipE btn" id="pencil">
-                <div>✏️ Pencil</div>
-                <div2 id="pencilCostText">Cost</div2>
-                <div3 id="pencilAmount">Amount</div3>
-            <div class="tooltiptext" id="pencilTooltip"></div>
-            </div>
-        </div>
-        <div class="flex-item">
-            <div class="tooltipE btn" id="notebook">
-                <div>📓 Notebook</div>
-                <div2 id="notebookCostText">Cost</div2>
-                <div3 id="notebookAmount">Amount</div3>
-            <span class="tooltiptext" id="notebookTooltip"></span>     
-            </div>
-        </div>
-        <div class="flex-item">
-            <div class="tooltipE btn" id="ruler">
-                <div>📏 Ruler</div>
-                <div2 id="rulerCostText">Cost</div2>
-                <div3 id="rulerAmount">Amount</div3>
-                <span class="tooltiptext" id="rulerTooltip" ></span>     
-            </div>
-        </div>
-        <div class="flex-item">
-            <div class="tooltipE btn" id="textbook">
-                <div>📚 Textbooks</div>
-                <div2 id="textbookCostText">Cost</div2>
-                <div3 id="textbookAmount">Amount</div3>
-                <span class="tooltiptext" id="textbookTooltip"></span>     
-            </div>
-        </div>
-        <div class="flex-item">
-            <div class="tooltipE btn" id="teacher">
-                <div>👨‍🏫 Teacher</div>
-                <div2 id="teacherCostText">Cost</div2>
-                <div3 id="teacherAmount">Amount</div3>
-                <span class="tooltiptext" id="teacherTooltip"></span>     
-            </div>
-        </div>
-
-
-
-        
-    </div>
-</div>
-
-<div class="wrapper child">
-    <div class ="child">
-        <p2>Upgrades</p2>
-
-        <div class ="wrapper shop">
-            <div class="flex-item">
-                    <div class="tooltipS btn" id="pencilCase">
-                        <div id="pencilCaseDisplay">📦</div>
-                        <span class="tooltiptext" id="pencilCaseText"></span>
+                        <div class="tooltipS btn" id="pencilCase">
+                            <div id="pencilCaseDisplay">📦</div>
+                            <span class="tooltiptext" id="pencilCaseText"></span>
+                        </div>
+                </div>
+                <div class="flex-item">
+                    <div class="tooltipS btn" id ="mechA">
+                        <div id="mechADisplay">📦</div>
+                        <span class="tooltiptext" id="mechAText"></span>         
                     </div>
-            </div>
-            <div class="flex-item">
-                <div class="tooltipS btn" id ="mechA">
-                    <div id="mechADisplay">📦</div>
-                    <span class="tooltiptext" id="mechAText"></span>         
                 </div>
-            </div>
-            <div class="flex-item">
-                <div class="tooltipS btn" id ="Nbook">
-                    <div id="NbookDisplay">📦</div>
-                    <span class="tooltiptext" id="NbookText"></span>         
+                <div class="flex-item">
+                    <div class="tooltipS btn" id ="Nbook">
+                        <div id="NbookDisplay">📦</div>
+                        <span class="tooltiptext" id="NbookText"></span>         
+                    </div>
                 </div>
-            </div>
-            <div class="flex-item">
-                <div class="tooltipS btn" id ="TRuler">
-                    <div id="TRulerDisplay">📦</div>
-                    <span class="tooltiptext" id="TRulerText"></span>         
+                <div class="flex-item">
+                    <div class="tooltipS btn" id ="TRuler">
+                        <div id="TRulerDisplay">📦</div>
+                        <span class="tooltiptext" id="TRulerText"></span>         
+                    </div>
                 </div>
-            </div>
-            <div class="flex-item">
-                <div class="tooltipS btn" id ="Tbook">
-                    <div id="TbookDisplay">📦</div>
-                    <span class="tooltiptext" id="TbookText"></span>         
+                <div class="flex-item">
+                    <div class="tooltipS btn" id ="Tbook">
+                        <div id="TbookDisplay">📦</div>
+                        <span class="tooltiptext" id="TbookText"></span>         
+                    </div>
                 </div>
-            </div>
-            <div class="flex-item">
-                <div class="tooltipS btn" id="bag">
-                    <div id="bagDisplay">📦</div>
-                    <span class="tooltiptext" id="bagText"></span>     
+                <div class="flex-item">
+                    <div class="tooltipS btn" id="bag">
+                        <div id="bagDisplay">📦</div>
+                        <span class="tooltiptext" id="bagText"></span>     
+                    </div>
                 </div>
-            </div>
-            <div class="flex-item">
-                <div class="tooltipS btn" id="apple">
-                    <div id="appleDisplay">📦</div>
-                    <span class="tooltiptext" id="appleText"></span>     
+                <div class="flex-item">
+                    <div class="tooltipS btn" id="apple">
+                        <div id="appleDisplay">📦</div>
+                        <span class="tooltiptext" id="appleText"></span>     
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
-</div>
 
 
         <script src="script.js"></script>

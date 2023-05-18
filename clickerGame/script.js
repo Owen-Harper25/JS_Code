@@ -245,22 +245,22 @@ function time(){
 function getGrade(){
     if (totalMoney >= 5000){
         grade = 4
-        document.getElementById("background").classList = ('gradeFour')
+        // document.getElementById("background").classList = ('gradeFour')
     }
     
     else if (totalMoney >= 1000){
         grade = 3
-        document.getElementById("background").classList = ('gradeThree')
+        // document.getElementById("background").classList = ('gradeThree')
     }
 
     else if (totalMoney >= 500){
         grade = 2
-        document.getElementById("background").classList = ('gradeTwo')
+        // document.getElementById("background").classList = ('gradeTwo')
     }
 
     else if (totalMoney >= 0){
         grade = 1
-        document.getElementById("background").classList = ('gradeOne')
+        // document.getElementById("background").classList = ('gradeOne')
     }
 }
 

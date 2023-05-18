@@ -1,4 +1,4 @@
-let money = 100000000
+let money = 1000
 let income = 0
 let timeA = 0
 let multiplier = 1
@@ -16,7 +16,6 @@ const supplies = {
         value: 0.1,
         number: 0,
         costIncrease: 15,
-        unboxed: false
     },
 
     notebook: {
@@ -24,7 +23,6 @@ const supplies = {
         value: 1,
         number: 0,
         costIncrease: 50,
-        unboxed: false
     },
 
     ruler: {
@@ -32,7 +30,6 @@ const supplies = {
         value: 3,
         number: 0,
         costIncrease: 150,
-        unboxed: false
     },
 
     textbook: {
@@ -40,7 +37,6 @@ const supplies = {
         value: 5,
         number: 0,
         costIncrease: 500,
-        unboxed: false
     },
 
     teacher: {
@@ -48,27 +44,30 @@ const supplies = {
         value: 10,
         number: 0,
         costIncrease: 1000,
-        unboxed: false
     },
 }
 
 const upgrades = {
-    bag: {
+    pencilCase: {
         cost: 200,
         effect: () => {clickPower += 1},
         avalible: false,
         bought: false,
-        icon: '🎒',
+        icon: '👝',
         condition: () => {return c >= 50},
+        description: "Doubles your clicking power",
+        title: "Pencil Case",
     },
-
+    
     mechA: {
         cost: 500,
         effect: () => {supplies.pencil.value *= 2},
         avalible: false,
         bought: false,
         icon: '🖊️',
-        condition: () => {return supplies.pencil.unboxed},
+        condition: () => {return supplies.pencil.number >= 5},
+        description: "Doubles your pencil power",
+        title: "Mechanical Pencil",
     },
 
     Nbook: {
@@ -77,16 +76,20 @@ const upgrades = {
         avalible: false,
         bought: false,
         icon: '📒',
-        condition: () => {return supplies.notebook.unboxed},
+        condition: () => {return supplies.notebook.number >= 5},
+        description: "Doubles your notebook power",
+        title: "Hard Cover",
     },
 
-    Ruler: {
+    TRuler: {
         cost: 2000,
         effect: () => {supplies.ruler.value *= 2},
         avalible: false,
         bought: false,
-        condition: () => {return supplies.ruler.unboxed},
-        icon: '📐'
+        condition: () => {return supplies.ruler.number >= 5},
+        icon: '📐',
+        description: "Doubles your ruler power",
+        title: "Traingle Set",
     },
 
     Tbook: {
@@ -94,9 +97,34 @@ const upgrades = {
         effect: () => {supplies.textbook.value *= 2},
         avalible: false,
         bought: false,
-        condition: () => {return supplies.textbook.unboxed},
-        icon: '📖'
-    }
+        condition: () => {return supplies.textbook.number >= 5},
+        icon: '📖',
+        description: "Doubles your textbook power",
+        title: "More Pages",
+    },
+
+    bag: {
+        cost: 10000,
+        effect: () => {clickPower += 1},
+        avalible: false,
+        bought: false,
+        icon: '🎒',
+        condition: () => {return c >= 250},
+        description: "Doubles your clicking power",
+        title: "Backpack",
+    },
+    
+    apple: {
+        cost: 10000,
+        effect: () => {clickPower += 1},
+        avalible: false,
+        bought: false,
+        icon: '🍎',
+        condition: () => {return supplies.teacher.number >= 5},
+        description: "Doubles your teacher's power",
+        title: "Teacher's Apple",
+    },
+
 }
 
 function initSupplies() {
@@ -117,11 +145,6 @@ function buySupply(supplyName) {
         money -= supply.cost
         supply.number += 1
         supply.cost += supply.costIncrease
-            
-        if (supply.number >= 5){
-            supply.unboxed = true
-            // console.log("Unboxed")  
-        }
         update()
     }
 }
@@ -131,7 +154,6 @@ function initUpgrades() {
     for (const upgradeName in upgrades) {
         const element = document.getElementById(upgradeName)
         element.addEventListener('click', () => { upgrade(upgradeName) })
-        console.log(upgrades.mechA.condition())
     }
 }
 
@@ -155,10 +177,13 @@ function update(){
         document.getElementById(supplyName + 'Tooltip').innerText = (`Each ${supplyName} increases your kps by ${supply.value} \n You have ${supply.number} ${supplyName} making ` + (supply.number * supply.value).toFixed(1) + `kp per second.`);
         document.getElementById(supplyName + 'CostText').innerText = (`${supply.cost}`);
         document.getElementById(supplyName + 'Amount').innerText = (`${supply.number}`);
+
     }
 
     for (const upgradeName in upgrades){
         const upgrade = upgrades[upgradeName]
+        document.getElementById(upgradeName + 'Text').innerText = (`${upgrade.title}: ${upgrade.description} \n ${upgrade.cost}`);
+
         if (upgrade.condition() == true){
             document.getElementById(upgradeName + 'Display').innerText = (upgrade.icon)
         }
@@ -180,17 +205,38 @@ function time(){
     for (const supplyName in supplies) {
         const supply = supplies[supplyName]
         localIncome += supply.value * supply.number
-        console.log(localIncome)
+            
+        if (money >= supply.cost){
+                document.getElementById(supplyName + 'CostText').classList = ('affordable')
+        }
+
+        else{
+            document.getElementById(supplyName + 'CostText').classList = ('notAffordable')
+        }
     }
 
-    localIncome = parseInt(localIncome.toFixed(2))
-    
+    // for (const upgradeName in upgrades) {
+    //     const upgrade = upgrades[upgradeName]
+
+    //     if (money >= upgrade.cost){
+    //         document.getElementById(upgradeName + 'CostText').classList = ('affordable')
+    //     }
+
+    //     else{
+    //         document.getElementById(upgradeName + 'CostText').classList = ('notAffordable')
+    //     }
+    // }
+
+
+    localIncome = localIncome.toFixed(2)
     money += multiplier * speed * localIncome / 60
     totalMoney += multiplier * speed * localIncome / 60
     document.getElementById("incomeD").innerText = ("You are making " + localIncome * multiplier * speed + "kp per second");
     document.getElementById("moneyCounter").innerText = ("Current knowledge: " + money.toFixed() + "kp");
     document.getElementById("moneyTotal").innerText = ("Total knowledge: " + totalMoney.toFixed() + "kp");
     document.getElementById("multiCount").innerText = ("Current multiplyer: " + multiplier);
+
+
 }
 
 initSupplies()

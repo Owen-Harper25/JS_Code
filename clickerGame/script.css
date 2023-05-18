@@ -43,7 +43,12 @@ div3{
 
 .notAffordable {
     opacity: 0.5;
-    pointer-events: none;
+    color: #ff0000;
+}
+
+.affordable {
+    opacity: 100%;
+    color: #00ff22;
 }
 
 .info {
@@ -102,10 +107,6 @@ h2{
     font-size: medium;
 }
 
-/* .flex-item:active {
-    transform: translateY(4px);
-} */
-
 .flex-item:hover {
     transform: scale(1.01);
     background-color: #636262;
@@ -114,6 +115,12 @@ h2{
 .p-inline{
     display: inline;
 }
+
+
+
+
+
+
 .tooltipE {
     position: relative;
     display: inline-block;

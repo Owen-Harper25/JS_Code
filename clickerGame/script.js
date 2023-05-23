@@ -8,6 +8,7 @@ let totalMoney = 0
 let passPencil = 50
 let click = 1
 let c = 0
+let a = 0
 let grade = 0
 
 const supplies = {
@@ -195,6 +196,8 @@ function onButtonClick(){
     money += multiplier * clickPower
     totalMoney += multiplier * clickPower
     c += 1
+    a += 1
+    document.getElementById('pageAni').src = (`images/Page/sprite_${a % 75}.png`)
     update()
 
 }

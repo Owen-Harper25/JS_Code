@@ -2,17 +2,17 @@
 <html lang = en>
 <link rel="stylesheet" href="script.css">
 
-<body id="background">
+<body>
 
     <div class="wrapper child">
 
         <div class="bgImage">
             <button class="pageButton" onclick="onButtonClick()">           
-                <img src="images/Page.png" alt="📝" boarder=0/>
+                <img src="images/Page/sprite_0.png" alt="📝" boarder=0 id="pageAni"/>
             </button>
         </div>
 
-        <div class="child">
+        <div class="child" id="background">
             <p1>Info</p1>
             <p id = "moneyCounter" class="info"></p>
             <p id = "moneyTotal" class="info"></p>
@@ -21,7 +21,7 @@
             <p id = "grade" class="info"></p>
         </div>
 
-        <div class="child">
+        <div class="child" id="background">
             <p2>School Supplies</p2>
                     <div class="flex-item">
                 <div class="tooltipE btn" id="pencil">
@@ -70,7 +70,7 @@
         </div>
     </div>
 
-    <div class="wrapper child">
+    <div class="wrapper child" id="background">
         <div class ="child">
             <p2>Upgrades</p2>
 

@@ -1,7 +1,7 @@
-let money = 0
+let money = 1000000
 let income = 0
 let timeA = 0
-let multiplier = 50
+let multiplier = 1
 let speed = 1
 let clickPower = 1
 let totalMoney = 0
@@ -128,6 +128,10 @@ const upgrades = {
     },
 
 }
+function pageAni(){
+    document.getElementById('pageAni').src = (`images/Page/sprite_${Math.floor(a) % 75}.png`)
+    update()
+}
 
 function initSupplies() {
 
@@ -173,13 +177,12 @@ function upgrade(upgradeName) {
 }
 
 function update(){
-
+    console.log(a)
     for (const supplyName in supplies) {
         const supply = supplies[supplyName]
         document.getElementById(supplyName + 'Tooltip').innerText = (`Each ${supplyName} increases your kps by ${supply.value} \n You have ${supply.number} ${supplyName} making ` + (supply.number * supply.value).toFixed(1) + `kp per second.`);
         document.getElementById(supplyName + 'CostText').innerText = (`${supply.cost}`);
         document.getElementById(supplyName + 'Amount').innerText = (`${supply.number}`);
-
     }
 
     for (const upgradeName in upgrades){
@@ -197,25 +200,30 @@ function onButtonClick(){
     totalMoney += multiplier * clickPower
     c += 1
     a += 1
-    document.getElementById('pageAni').src = (`images/Page/sprite_${a % 75}.png`)
+    pageAni()
     update()
-
 }
+
+
 
 function time(){
     requestAnimationFrame(time)
 
     let localIncome = 0
 
+
     for (const supplyName in supplies) {
         const supply = supplies[supplyName]
         localIncome += supply.value * supply.number
-            
+        a += (supply.value * supply.number) / 60
+        pageAni()
+       
+
         if (money >= supply.cost){
                 document.getElementById(supplyName + 'CostText').classList = ('affordable')
         }
 
-        else{
+        else {
             document.getElementById(supplyName + 'CostText').classList = ('notAffordable')
         }
     }
@@ -232,8 +240,7 @@ function time(){
     //     }
     // }
 
-
-    localIncome = localIncome.toFixed(2)
+    localIncome = localIncome.toFixed(1)
     money += multiplier * speed * localIncome / 60
     totalMoney += multiplier * speed * localIncome / 60
     document.getElementById("incomeD").innerText = ("You are making " + localIncome * multiplier * speed + "kp per second");

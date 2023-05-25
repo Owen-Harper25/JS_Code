@@ -129,7 +129,7 @@ const upgrades = {
 
 }
 function pageAni(){
-    document.getElementById('pageAni').src = (`images/Page/sprite_${Math.floor(a) % 75}.png`)
+    document.getElementById('pageAni').src = (`images/Binder/l0_sprite_book${Math.floor(a) % 72 + 1}.png`)
     update()
 }
 

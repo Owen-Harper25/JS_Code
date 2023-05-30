@@ -177,7 +177,7 @@ function upgrade(upgradeName) {
 }
 
 function update(){
-    console.log(a)
+    // console.log(a)
     for (const supplyName in supplies) {
         const supply = supplies[supplyName]
         document.getElementById(supplyName + 'Tooltip').innerText = (`Each ${supplyName} increases your kps by ${supply.value} \n You have ${supply.number} ${supplyName} making ` + (supply.number * supply.value).toFixed(1) + `kp per second.`);
@@ -239,7 +239,7 @@ function time(){
     //         document.getElementById(upgradeName + 'CostText').classList = ('notAffordable')
     //     }
     // }
-
+    console.log(grade)
     localIncome = localIncome.toFixed(1)
     money += multiplier * speed * localIncome / 60
     totalMoney += multiplier * speed * localIncome / 60
@@ -253,24 +253,52 @@ function time(){
 }
 
 function getGrade(){
-    if (totalMoney >= 5000){
-        grade = 4
-        // document.getElementById("background").classList = ('gradeFour')
-    }
-    
-    else if (totalMoney >= 1000){
-        grade = 3
-        // document.getElementById("background").classList = ('gradeThree')
+     
+    if (totalMoney >= 9){ //5000
+        grade = 10
+        document.getElementById("classes").classList = ('bgImage gradeTen')
     }
 
-    else if (totalMoney >= 500){
+    else if (totalMoney >= 8){ //5000
+        grade = 9
+        document.getElementById("classes").classList = ('bgImage gradeNine')
+    }
+
+    else if (totalMoney >= 7){ //5000
+        grade = 8
+        document.getElementById("classes").classList = ('bgImage gradeEight')
+    }
+    
+    else if (totalMoney >= 6){ //5000
+        grade = 7
+        document.getElementById("classes").classList = ('bgImage gradeSeven')
+    }
+    else if (totalMoney >= 5){ //15000
+        grade = 6
+        document.getElementById("classes").classList = ('bgImage gradeSix')
+    }
+    else if (totalMoney >= 4){ //12000
+        grade = 5
+        document.getElementById("classes").classList = ('bgImage gradeFive')
+    }
+    else if (totalMoney >= 3){ //5000
+        grade = 4
+        document.getElementById("classes").classList = ('bgImage gradeFour')
+    }
+    
+    else if (totalMoney >= 2){ //1000
+        grade = 3
+        document.getElementById("classes").classList = ('bgImage gradeThree')
+    }
+
+    else if (totalMoney >= 1){ //250
         grade = 2
-        // document.getElementById("background").classList = ('gradeTwo')
+        document.getElementById("classes").classList = ('bgImage gradeTwo')
     }
 
     else if (totalMoney >= 0){
         grade = 1
-        // document.getElementById("background").classList = ('gradeOne')
+        document.getElementById("classes").classList = ('bgImage gradeOne')
     }
 }
 

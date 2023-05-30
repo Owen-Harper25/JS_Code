@@ -78,7 +78,7 @@ div3{
 
 .bgImage{
     display: flex;
-    background-image: url("images/Classroom.jpg");
+    
     width: 30%;
     height: auto;
     margin: .1em;
@@ -88,7 +88,55 @@ div3{
     align-items: center;
 }
 
-.btn {
+.gradeOne{
+    background-image: url("images/Grade\ 1.jpg");
+    background-size: cover;
+}
+
+.gradeTwo{
+    background-image: url("images/Grade\ 2.jpg");
+    background-size: cover;
+}
+
+.gradeThree{
+    background-image: url("images/Grade\ 3.jpg");
+    background-size: cover;
+        /* background-repeat: no-repeat;
+    background-image: url('images/Grade 2.jpg') */
+}
+
+.gradeFour{
+    background-image: url("images/Grade\ 4.jpg");
+    background-size: cover;
+}
+
+.gradeFive{
+    background-image: url("images/Grade\ 5.jpg");
+    background-size: cover;
+}
+
+.gradeSix{
+    background-image: url("images/Grade\ 6.jpg");
+    background-size: cover;
+}
+
+.gradeSeven{
+    background-image: url("images/Grade\ 7.jpg");
+    background-size: cover;
+}
+
+.gradeEight{
+    background-image: url("images/Grade\ 8.jpg");
+    background-size: cover;
+}
+
+.gradeNine{
+    background-image: url("images/Grade\ 9.jpg");
+    background-size: cover;
+}
+
+
+.btn{
     width: 100%;
 }
 
@@ -114,27 +162,6 @@ h2{
     display: inline;
 }
 
-.gradeOne{
-    background-color: #00ff22;
-    /* background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-size: cover;
-    background-image: url('images/Kindi.jpg') */
-}
-
-.gradeTwo{
-    background-color: #1ccebf;
-    /* background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url('images/Grade 2.jpg') */
-}
-.gradeThree{
-    background-color: #d47215;
-}
-.gradeFour{
-    background-color: #ce1c99;
-}
-
 .tooltipE {
     position: relative;
     display: inline-block;
@@ -158,6 +185,7 @@ h2{
 .tooltipE:hover .tooltiptext {
     visibility: visible;
 }
+
 .tooltipS {
     position: relative;
     display: inline-block;

@@ -88,53 +88,92 @@ div3{
     align-items: center;
 }
 
-.gradeOne{
-    background-image: url("images/Grade\ 1.jpg");
+.grade1{
+    background-image: url("images/Grades/Grade\ 1.jpg");
     background-size: cover;
 }
 
-.gradeTwo{
-    background-image: url("images/Grade\ 2.jpg");
+.grade2{
+    background-image: url("images/Grades/Grade\ 2.jpg");
     background-size: cover;
 }
 
-.gradeThree{
-    background-image: url("images/Grade\ 3.jpg");
-    background-size: cover;
-        /* background-repeat: no-repeat;
-    background-image: url('images/Grade 2.jpg') */
-}
-
-.gradeFour{
-    background-image: url("images/Grade\ 4.jpg");
+.grade3{
+    background-image: url("images/Grades/Grade\ 3.jpg");
     background-size: cover;
 }
 
-.gradeFive{
-    background-image: url("images/Grade\ 5.jpg");
+.grade4{
+    background-image: url("images/Grades/Grade\ 4.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.grade5{
+    background-image: url("images/Grades/Grade\ 5.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.grade6{
+    background-image: url("images/Grades/Grade\ 6.jpg");
+    background-size: cover;
+    background-position: top;
+}
+
+.grade7{
+    background-image: url("images/Grades/Grade\ 7.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.grade8{
+    background-image: url("images/Grades/Grade\ 8.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.grade9{
+    background-image: url("images/Grades/Grade\ 9.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.grade10{
+    background-image: url("images/Grades/Grade\ 10.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.grade11{
+    background-image: url("images/Grades/Grade\ 11.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.grade12{
+    background-image: url("images/Grades/Grade\ 12.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.grade13{
+    background-image: url("images/Grades/Grade\ 13.jpg");
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.grade14{
+    background-image: url("images/Grades/Grade\ 14.jpg");
     background-size: cover;
 }
 
-.gradeSix{
-    background-image: url("images/Grade\ 6.jpg");
+.grade15{
+    background-image: url("images/Grades/Grade\ 15.jpg");
     background-size: cover;
 }
-
-.gradeSeven{
-    background-image: url("images/Grade\ 7.jpg");
-    background-size: cover;
-}
-
-.gradeEight{
-    background-image: url("images/Grade\ 8.jpg");
-    background-size: cover;
-}
-
-.gradeNine{
-    background-image: url("images/Grade\ 9.jpg");
-    background-size: cover;
-}
-
 
 .btn{
     width: 100%;

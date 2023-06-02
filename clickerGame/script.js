@@ -14,38 +14,38 @@ let grade = 0
 const supplies = {
 
     pencil: {
-        cost: 50,
+        cost: 15,
         value: 0.1,
         number: 0,
         costIncrease: 15,
     },
 
     notebook: {
-        cost: 100,
+        cost: 50,
         value: 1,
         number: 0,
         costIncrease: 50,
     },
 
     ruler: {
-        cost: 250,
+        cost: 150,
         value: 3,
         number: 0,
         costIncrease: 150,
     },
 
     textbook: {
-        cost: 500,
+        cost: 250,
         value: 5,
         number: 0,
-        costIncrease: 500,
+        costIncrease: 250,
     },
 
     teacher: {
-        cost: 1000,
+        cost: 500,
         value: 10,
         number: 0,
-        costIncrease: 1000,
+        costIncrease: 500,
     },
 }
 
@@ -129,7 +129,7 @@ const upgrades = {
 
 }
 function pageAni(){
-    document.getElementById('pageAni').src = (`images/Textbook/l0_sprite_binder${Math.floor(a) % 67 + 1}.png`)
+    document.getElementById('pageAni').src = (`images/Binder1/l0_sprite_binder${Math.floor(a) % 67 + 1}.png`)
     update()
 }
 

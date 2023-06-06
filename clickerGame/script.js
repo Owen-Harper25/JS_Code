@@ -1,7 +1,7 @@
 let money = 0
 let income = 0
 let timeA = 0
-let multiplier = 1
+let multiplier = 50
 let speed = 1
 let clickPower = 1
 let totalMoney = 0
@@ -9,6 +9,7 @@ let passPencil = 50
 let click = 1
 let c = 0
 let a = 0
+let u = 1
 let grade = 0
 
 const supplies = {
@@ -18,6 +19,7 @@ const supplies = {
         value: 0.1,
         number: 0,
         costIncrease: 15,
+        // icon: upgradeIcon(),
     },
 
     notebook: {
@@ -48,6 +50,10 @@ const supplies = {
         costIncrease: 500,
     },
 }
+
+// function upgradeIcon(u) {
+//     document.getElementById(supplyName + 'Icon').src = (`images/pencil/l0_sprite_${supplyName}${u}.png`)
+// }
 
 const upgrades = {
     pencilCase: {
@@ -126,11 +132,18 @@ const upgrades = {
         description: "Doubles your teacher's power",
         title: "Teacher's Apple",
     },
-
 }
+
 function pageAni(){
-    document.getElementById('pageAni').src = (`images/Binder1/l0_sprite_binder${Math.floor(a) % 67 + 1}.png`)
-    update()
+    if (grade <= 2) {
+        document.getElementById('pageAni').src = (`images/sprite_babytoy0.png`)
+        update()
+    }
+
+    else {
+        document.getElementById('pageAni').src = (`images/Binder1/l0_sprite_binder${Math.floor(a) % 67 + 1}.png`)
+        update()
+    }
 }
 
 function initSupplies() {
@@ -151,7 +164,13 @@ function buySupply(supplyName) {
         money -= supply.cost
         supply.number += 1
         supply.cost += supply.costIncrease
+        console.log(u)
         update()
+
+        if (supply.number >= 2){
+            u = supply.number
+            document.getElementById(supplyName + 'Icon').src = (`images/${supplyName}/l0_sprite_${supplyName}${u}.png`)
+        }
     }
 }
 
@@ -274,12 +293,12 @@ function getGrade(){
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
     
-    else if (totalMoney >= 20000){ //5000
+    else if (totalMoney >= 50000){ //5000
         grade = 12
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
  
-    else if (totalMoney >= 20000){ //5000
+    else if (totalMoney >= 35000){ //5000
         grade = 11
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
@@ -289,39 +308,39 @@ function getGrade(){
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
 
-    else if (totalMoney >= 20000){ //5000
+    else if (totalMoney >= 15000){ //5000
         grade = 9
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
 
-    else if (totalMoney >= 20000){ //5000
+    else if (totalMoney >= 10000){ //5000
         grade = 8
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
     
-    else if (totalMoney >= 20000){ //5000
+    else if (totalMoney >= 5000){ //5000
         grade = 7
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
-    else if (totalMoney >= 12000){ //15000
+    else if (totalMoney >= 2500){ //15000
         grade = 6
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
-    else if (totalMoney >= 8000){ //12000
+    else if (totalMoney >= 1000){ //12000
         grade = 5
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
-    else if (totalMoney >= 3000){ //5000
+    else if (totalMoney >= 500){ //5000
         grade = 4
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
     
-    else if (totalMoney >= 1000){ //1000
+    else if (totalMoney >= 250){ //1000
         grade = 3
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
 
-    else if (totalMoney >= 250){ //250
+    else if (totalMoney >= 100){ //250
         grade = 2
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }

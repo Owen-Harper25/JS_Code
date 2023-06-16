@@ -11,6 +11,10 @@ let c = 0
 let a = 0
 let u = 1
 let grade = 0
+let pencilIconA = 0
+let rulerIconA = 0
+let notebookIconA = 0
+let textbookIconA = 0
 
 const supplies = {
 
@@ -58,7 +62,7 @@ const supplies = {
 const upgrades = {
     pencilCase: {
         cost: 200,
-        effect: () => {clickPower += 1},
+        effect: () => {clickPower *= 2},
         avalible: false,
         bought: false,
         icon: '👝',
@@ -69,7 +73,7 @@ const upgrades = {
     
     mechA: {
         cost: 500,
-        effect: () => {supplies.pencil.value *= 2},
+        effect: () => {supplies.pencil.value *= 2, pencilIconA += 1},
         avalible: false,
         bought: false,
         icon: '🖊️',
@@ -80,7 +84,7 @@ const upgrades = {
 
     Nbook: {
         cost: 1000,
-        effect: () => {supplies.notebook.value *= 2},
+        effect: () => {supplies.notebook.value *= 2, notebookIconA += 1},
         avalible: false,
         bought: false,
         icon: '📒',
@@ -91,7 +95,7 @@ const upgrades = {
 
     TRuler: {
         cost: 2000,
-        effect: () => {supplies.ruler.value *= 2},
+        effect: () => {supplies.ruler.value *= 2, rulerIconA += 1},
         avalible: false,
         bought: false,
         condition: () => {return supplies.ruler.number >= 5},
@@ -102,7 +106,7 @@ const upgrades = {
 
     Tbook: {
         cost: 5000,
-        effect: () => {supplies.textbook.value *= 2},
+        effect: () => {supplies.textbook.value *= 2, textbookIconA += 1},
         avalible: false,
         bought: false,
         condition: () => {return supplies.textbook.number >= 5},
@@ -112,8 +116,8 @@ const upgrades = {
     },
 
     bag: {
-        cost: 10000,
-        effect: () => {clickPower += 1},
+        cost: 500,
+        effect: () => {clickPower *= 2},
         avalible: false,
         bought: false,
         icon: '🎒',
@@ -166,11 +170,6 @@ function buySupply(supplyName) {
         supply.cost += supply.costIncrease
         console.log(u)
         update()
-
-        if (supply.number >= 2){
-            u = supply.number
-            document.getElementById(supplyName + 'Icon').src = (`images/${supplyName}/l0_sprite_${supplyName}${u}.png`)
-        }
     }
 }
 
@@ -196,12 +195,13 @@ function upgrade(upgradeName) {
 }
 
 function update(){
-    // console.log(a)
+   
     for (const supplyName in supplies) {
         const supply = supplies[supplyName]
         document.getElementById(supplyName + 'Tooltip').innerText = (`Each ${supplyName} increases your kps by ${supply.value} \n You have ${supply.number} ${supplyName} making ` + (supply.number * supply.value).toFixed(1) + `kp per second.`);
         document.getElementById(supplyName + 'CostText').innerText = (`${supply.cost}`);
         document.getElementById(supplyName + 'Amount').innerText = (`${supply.number}`);
+        document.getElementById(supplyName + 'Icon').src = (`Images/${supplyName}/l0_sprite_${supplyName}${supplyName + "IconA"}.png`)
     }
 
     for (const upgradeName in upgrades){
@@ -247,17 +247,6 @@ function time(){
         }
     }
 
-    // for (const upgradeName in upgrades) {
-    //     const upgrade = upgrades[upgradeName]
-
-    //     if (money >= upgrade.cost){
-    //         document.getElementById(upgradeName + 'CostText').classList = ('affordable')
-    //     }
-
-    //     else{
-    //         document.getElementById(upgradeName + 'CostText').classList = ('notAffordable')
-    //     }
-    // }
     console.log(grade)
     localIncome = localIncome.toFixed(1)
     money += multiplier * speed * localIncome / 60
@@ -272,75 +261,70 @@ function time(){
 }
 
 function getGrade(){
-       
-    // if (totalMoney >= 15){ //5000
-    //     grade = 16
-    //     document.getElementById("classes").classList = ('bgImage grade' + grade)
-    // }
-    
-    if (totalMoney >= 20000){ //5000
+
+    if (totalMoney >= 400000){
         grade = 15
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
     
-    else if (totalMoney >= 20000){ //5000
+    else if (totalMoney >= 200000){
         grade = 14
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
     
-    else if (totalMoney >= 20000){ //5000
+    else if (totalMoney >= 100000){
         grade = 13
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
     
-    else if (totalMoney >= 50000){ //5000
+    else if (totalMoney >= 50000){
         grade = 12
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
  
-    else if (totalMoney >= 35000){ //5000
+    else if (totalMoney >= 35000){
         grade = 11
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
 
-    else if (totalMoney >= 20000){ //5000
+    else if (totalMoney >= 20000){
         grade = 10
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
 
-    else if (totalMoney >= 15000){ //5000
+    else if (totalMoney >= 15000){
         grade = 9
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
 
-    else if (totalMoney >= 10000){ //5000
+    else if (totalMoney >= 10000){
         grade = 8
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
     
-    else if (totalMoney >= 5000){ //5000
+    else if (totalMoney >= 5000){
         grade = 7
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
-    else if (totalMoney >= 2500){ //15000
+    else if (totalMoney >= 2500){
         grade = 6
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
-    else if (totalMoney >= 1000){ //12000
+    else if (totalMoney >= 1000){
         grade = 5
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
-    else if (totalMoney >= 500){ //5000
+    else if (totalMoney >= 500){
         grade = 4
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
     
-    else if (totalMoney >= 250){ //1000
+    else if (totalMoney >= 250){
         grade = 3
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
 
-    else if (totalMoney >= 100){ //250
+    else if (totalMoney >= 100){
         grade = 2
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }

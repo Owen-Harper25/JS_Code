@@ -9,7 +9,7 @@ let passPencil = 50
 let click = 1
 let c = 0
 let a = 0
-let u = 1
+// let u = 1
 let grade = 0
 let pencilIconA = 0
 let rulerIconA = 0
@@ -60,7 +60,7 @@ const supplies = {
 // }
 
 const upgrades = {
-    pencilCase: {
+    book1: {
         cost: 200,
         effect: () => {clickPower *= 2},
         avalible: false,
@@ -71,51 +71,7 @@ const upgrades = {
         title: "Pencil Case",
     },
     
-    mechA: {
-        cost: 500,
-        effect: () => {supplies.pencil.value *= 2, pencilIconA += 1},
-        avalible: false,
-        bought: false,
-        icon: '🖊️',
-        condition: () => {return supplies.pencil.number >= 5},
-        description: "Doubles your pencil power",
-        title: "Mechanical Pencil",
-    },
-
-    Nbook: {
-        cost: 1000,
-        effect: () => {supplies.notebook.value *= 2, notebookIconA += 1},
-        avalible: false,
-        bought: false,
-        icon: '📒',
-        condition: () => {return supplies.notebook.number >= 5},
-        description: "Doubles your notebook power",
-        title: "Hard Cover",
-    },
-
-    TRuler: {
-        cost: 2000,
-        effect: () => {supplies.ruler.value *= 2, rulerIconA += 1},
-        avalible: false,
-        bought: false,
-        condition: () => {return supplies.ruler.number >= 5},
-        icon: '📐',
-        description: "Doubles your ruler power",
-        title: "Traingle Set",
-    },
-
-    Tbook: {
-        cost: 5000,
-        effect: () => {supplies.textbook.value *= 2, textbookIconA += 1},
-        avalible: false,
-        bought: false,
-        condition: () => {return supplies.textbook.number >= 5},
-        icon: '📖',
-        description: "Doubles your textbook power",
-        title: "More Pages",
-    },
-
-    bag: {
+    book2: {
         cost: 500,
         effect: () => {clickPower *= 2},
         avalible: false,
@@ -125,10 +81,142 @@ const upgrades = {
         description: "Doubles your clicking power",
         title: "Backpack",
     },
+
+    pencil1: {
+        cost: 500,
+        effect: () => {supplies.pencil.value *= 2, document.getElementById('pencilIcon').src = (`Images/pencil/l0_sprite_pencil2.png`)},
+        avalible: false,
+        bought: false,
+        icon: '🖊️',
+        condition: () => {return supplies.pencil.number >= 5},
+        description: "Doubles your pencil power",
+        title: "Better Graphite",
+    },
+
+    pencil2: {
+        cost: 1500,
+        effect: () => {supplies.pencil.value *= 2, document.getElementById('pencilIcon').src = (`Images/pencil/l0_sprite_pencil3.png`)},
+        avalible: false,
+        bought: false,
+        icon: '🖊️',
+        condition: () => {return supplies.pencil.number >= 10},
+        description: "Doubles your pencil power",
+        title: "Larger Eraser",
+    },
+
+    pencil3: {
+        cost: 5000,
+        effect: () => {supplies.pencil.value *= 2, document.getElementById('pencilIcon').src = (`Images/pencil/l0_sprite_pencil4.png`)},
+        avalible: false,
+        bought: false,
+        icon: '🖊️',
+        condition: () => {return supplies.pencil.number >= 15},
+        description: "Doubles your pencil power",
+        title: "Better Grip",
+    },
+
+    notebook1: {
+        cost: 1000,
+        effect: () => {supplies.notebook.value *= 2, document.getElementById('notebookIcon').src = (`Images/notebook/l0_sprite_notebook2.png`)},
+        avalible: false,
+        bought: false,
+        icon: '📒',
+        condition: () => {return supplies.notebook.number >= 5},
+        description: "Doubles your notebook power",
+        title: "Hard Cover",
+    },
+
+    notebook2: {
+        cost: 5000,
+        effect: () => {supplies.notebook.value *= 2, document.getElementById('notebookIcon').src = (`Images/notebook/l0_sprite_notebook3.png`)},
+        avalible: false,
+        bought: false,
+        icon: '📒',
+        condition: () => {return supplies.notebook.number >= 10},
+        description: "Doubles your notebook power",
+        title: "More Pages",
+    },
+
+    notebook3: {
+        cost: 10000,
+        effect: () => {supplies.notebook.value *= 2, document.getElementById('notebookIcon').src = (`Images/notebook/l0_sprite_notebook4.png`)},
+        avalible: false,
+        bought: false,
+        icon: '📒',
+        condition: () => {return supplies.notebook.number >= 15},
+        description: "Doubles your notebook power",
+        title: "Better Pages",
+    },
+
+    ruler1: {
+        cost: 2000,
+        effect: () => {supplies.ruler.value *= 2, document.getElementById('rulerIcon').src = (`Images/ruler/l0_sprite_ruler2.png`)},
+        avalible: false,
+        bought: false,
+        condition: () => {return supplies.ruler.number >= 5},
+        icon: '📐',
+        description: "Doubles your ruler power",
+        title: "Traingle Set",
+    },
+
+    ruler2: {
+        cost: 5000,
+        effect: () => {supplies.ruler.value *= 2, document.getElementById('rulerIcon').src = (`Images/ruler/l0_sprite_ruler3.png`)},
+        avalible: false,
+        bought: false,
+        condition: () => {return supplies.ruler.number >= 10},
+        icon: '📐',
+        description: "Doubles your ruler power",
+        title: "Longer Reach",
+    },
+
+    ruler3: {
+        cost: 10000,
+        effect: () => {supplies.ruler.value *= 2, document.getElementById('rulerIcon').src = (`Images/ruler/l0_sprite_ruler4.png`)},
+        avalible: false,
+        bought: false,
+        condition: () => {return supplies.ruler.number >= 15},
+        icon: '📐',
+        description: "Doubles your ruler power",
+        title: "See-Through",
+    },
+
+    textbook1: {
+        cost: 5000,
+        effect: () => {supplies.textbook.value *= 2, document.getElementById('notebookIcon').src = (`Images/textbook/l0_sprite_textbook2.png`)},
+        avalible: false,
+        bought: false,
+        condition: () => {return supplies.textbook.number >= 5},
+        icon: '📖',
+        description: "Doubles your textbook power",
+        title: "More Pages",
+    },
     
+    textbook2: {
+        cost: 5000,
+        effect: () => {supplies.textbook.value *= 2, document.getElementById('notebookIcon').src = (`Images/textbook/l0_sprite_textbook3.png`)},
+        avalible: false,
+        bought: false,
+        condition: () => {return supplies.textbook.number >= 10},
+        icon: '📖',
+        description: "Doubles your textbook power",
+        title: "More Pictures",
+    },
+
+    textbook3: {
+        cost: 5000,
+        effect: () => {supplies.textbook.value *= 2, document.getElementById('notebookIcon').src = (`Images/textbook/l0_sprite_textbook4.png`)},
+        avalible: false,
+        bought: false,
+        condition: () => {return supplies.textbook.number >= 15},
+        icon: '📖',
+        description: "Doubles your textbook power",
+        title: "Answer Key",
+    },
+
     apple: {
         cost: 10000,
-        effect: () => {clickPower += 1},
+        effect: () => {supplies.teacher.value *= 2},
         avalible: false,
         bought: false,
         icon: '🍎',
@@ -168,7 +256,7 @@ function buySupply(supplyName) {
         money -= supply.cost
         supply.number += 1
         supply.cost += supply.costIncrease
-        console.log(u)
+        // console.log(u)
         update()
     }
 }
@@ -201,7 +289,7 @@ function update(){
         document.getElementById(supplyName + 'Tooltip').innerText = (`Each ${supplyName} increases your kps by ${supply.value} \n You have ${supply.number} ${supplyName} making ` + (supply.number * supply.value).toFixed(1) + `kp per second.`);
         document.getElementById(supplyName + 'CostText').innerText = (`${supply.cost}`);
         document.getElementById(supplyName + 'Amount').innerText = (`${supply.number}`);
-        document.getElementById(supplyName + 'Icon').src = (`Images/${supplyName}/l0_sprite_${supplyName}${supplyName + "IconA"}.png`)
+        // document.getElementById(supplyName + 'Icon').src = (`Images/${supplyName}/l0_sprite_${supplyName}${supplyName + "IconA"}.png`)
     }
 
     for (const upgradeName in upgrades){

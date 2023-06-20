@@ -1,4 +1,4 @@
-let money = 0
+let money = 100000000
 let income = 0
 let timeA = 0
 let multiplier = 3
@@ -9,7 +9,6 @@ let passPencil = 50
 let click = 1
 let c = 0
 let a = 0
-// let u = 1
 let grade = 0
 let pencilIconA = 0
 let rulerIconA = 0
@@ -23,7 +22,6 @@ const supplies = {
         value: 0.1,
         number: 0,
         costIncrease: 15,
-        // icon: upgradeIcon(),
     },
 
     notebook: {
@@ -55,10 +53,6 @@ const supplies = {
     },
 }
 
-// function upgradeIcon(u) {
-//     document.getElementById(supplyName + 'Icon').src = (`images/pencil/l0_sprite_${supplyName}${u}.png`)
-// }
-
 const upgrades = {
     book1: {
         cost: 200,
@@ -87,7 +81,7 @@ const upgrades = {
         effect: () => {supplies.pencil.value *= 2, document.getElementById('pencilIcon').src = (`Images/pencil/l0_sprite_pencil2.png`)},
         avalible: false,
         bought: false,
-        icon: '🖊️',
+        icon: '✏️',
         condition: () => {return supplies.pencil.number >= 5},
         description: "Doubles your pencil power",
         title: "Better Graphite",
@@ -109,7 +103,7 @@ const upgrades = {
         effect: () => {supplies.pencil.value *= 2, document.getElementById('pencilIcon').src = (`Images/pencil/l0_sprite_pencil4.png`)},
         avalible: false,
         bought: false,
-        icon: '🖊️',
+        icon: '✍️',
         condition: () => {return supplies.pencil.number >= 15},
         description: "Doubles your pencil power",
         title: "Better Grip",
@@ -120,7 +114,7 @@ const upgrades = {
         effect: () => {supplies.notebook.value *= 2, document.getElementById('notebookIcon').src = (`Images/notebook/l0_sprite_notebook2.png`)},
         avalible: false,
         bought: false,
-        icon: '📒',
+        icon: '📕',
         condition: () => {return supplies.notebook.number >= 5},
         description: "Doubles your notebook power",
         title: "Hard Cover",
@@ -131,7 +125,7 @@ const upgrades = {
         effect: () => {supplies.notebook.value *= 2, document.getElementById('notebookIcon').src = (`Images/notebook/l0_sprite_notebook3.png`)},
         avalible: false,
         bought: false,
-        icon: '📒',
+        icon: '📘',
         condition: () => {return supplies.notebook.number >= 10},
         description: "Doubles your notebook power",
         title: "More Pages",
@@ -142,7 +136,7 @@ const upgrades = {
         effect: () => {supplies.notebook.value *= 2, document.getElementById('notebookIcon').src = (`Images/notebook/l0_sprite_notebook4.png`)},
         avalible: false,
         bought: false,
-        icon: '📒',
+        icon: '📗',
         condition: () => {return supplies.notebook.number >= 15},
         description: "Doubles your notebook power",
         title: "Better Pages",
@@ -165,7 +159,7 @@ const upgrades = {
         avalible: false,
         bought: false,
         condition: () => {return supplies.ruler.number >= 10},
-        icon: '📐',
+        icon: '📏',
         description: "Doubles your ruler power",
         title: "Longer Reach",
     },
@@ -176,14 +170,14 @@ const upgrades = {
         avalible: false,
         bought: false,
         condition: () => {return supplies.ruler.number >= 15},
-        icon: '📐',
+        icon: '📏',
         description: "Doubles your ruler power",
         title: "See-Through",
     },
 
     textbook1: {
-        cost: 5000,
-        effect: () => {supplies.textbook.value *= 2, document.getElementById('notebookIcon').src = (`Images/textbook/l0_sprite_textbook2.png`)},
+        cost: 2000,
+        effect: () => {supplies.textbook.value *= 2, document.getElementById('textbookIcon').src = (`Images/textbook/l0_sprite_textbook2.png`)},
         avalible: false,
         bought: false,
         condition: () => {return supplies.textbook.number >= 5},
@@ -194,22 +188,22 @@ const upgrades = {
     
     textbook2: {
         cost: 5000,
-        effect: () => {supplies.textbook.value *= 2, document.getElementById('notebookIcon').src = (`Images/textbook/l0_sprite_textbook3.png`)},
+        effect: () => {supplies.textbook.value *= 2, document.getElementById('textbookIcon').src = (`Images/textbook/l0_sprite_textbook3.png`)},
         avalible: false,
         bought: false,
         condition: () => {return supplies.textbook.number >= 10},
-        icon: '📖',
+        icon: '📔',
         description: "Doubles your textbook power",
         title: "More Pictures",
     },
 
     textbook3: {
-        cost: 5000,
-        effect: () => {supplies.textbook.value *= 2, document.getElementById('notebookIcon').src = (`Images/textbook/l0_sprite_textbook4.png`)},
+        cost: 10000,
+        effect: () => {supplies.textbook.value *= 2, document.getElementById('textbookIcon').src = (`Images/textbook/l0_sprite_textbook4.png`)},
         avalible: false,
         bought: false,
         condition: () => {return supplies.textbook.number >= 15},
-        icon: '📖',
+        icon: '📚',
         description: "Doubles your textbook power",
         title: "Answer Key",
     },
@@ -220,7 +214,7 @@ const upgrades = {
         avalible: false,
         bought: false,
         icon: '🍎',
-        condition: () => {return supplies.teacher.number >= 5},
+        condition: () => {return supplies.teacher.number >= 15},
         description: "Doubles your teacher's power",
         title: "Teacher's Apple",
     },
@@ -256,7 +250,6 @@ function buySupply(supplyName) {
         money -= supply.cost
         supply.number += 1
         supply.cost += supply.costIncrease
-        // console.log(u)
         update()
     }
 }
@@ -289,7 +282,6 @@ function update(){
         document.getElementById(supplyName + 'Tooltip').innerText = (`Each ${supplyName} increases your kps by ${supply.value} \n You have ${supply.number} ${supplyName} making ` + (supply.number * supply.value).toFixed(1) + `kp per second.`);
         document.getElementById(supplyName + 'CostText').innerText = (`${supply.cost}`);
         document.getElementById(supplyName + 'Amount').innerText = (`${supply.number}`);
-        // document.getElementById(supplyName + 'Icon').src = (`Images/${supplyName}/l0_sprite_${supplyName}${supplyName + "IconA"}.png`)
     }
 
     for (const upgradeName in upgrades){
@@ -422,7 +414,6 @@ function getGrade(){
         document.getElementById("classes").classList = ('bgImage grade' + grade)
     }
 }
-
 
 getGrade()
 initSupplies()
